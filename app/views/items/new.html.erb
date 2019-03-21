@@ -1,11 +1,11 @@
 <%= form_with scope: :item, url: items_path, local: true do |form| %>
     <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
+        <%= form.label :filename %><br>
+        <%= form.text_field :filename %>
     </p>
     <p>
-        <%= form.label :filetype %><br>
-        <%= form.text_field :filetype %>
+        <%= form.label :content_type %><br>
+        <%= form.text_field :content_type %>
     </p>
     <p>
         <%= form.label :file %><br>
