@@ -1,9 +1,5 @@
 <%= form_with scope: :upload, url: uploads_path, local: true do |form| %>
     <p>
-        <%= form.label :tag_id %><br>
-        <%= form.text_field :tag_id %>
-    </p>
-    <p>
         <%= form.label :file %><br>
         <%= form.file_field :file %>
     </p>

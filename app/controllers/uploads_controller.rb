@@ -3,12 +3,13 @@ class UploadsController < ApplicationController
 	end
 
 	def create
-		render plain: params[:upload].inspect
+		@upload = Upload.new(upload_params)
+		@upload.save
 	end
 
 	private
 
 	def upload_params
-		params.require(:upload).permit(tag_ids: [], files: [])
+		params.require(:upload).permit(:file)
 	end
 end
