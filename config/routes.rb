@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	get 'welcome/index'
 
-	resources :items
+	resources :uploads
 
 	root 'welcome#index'
 end
