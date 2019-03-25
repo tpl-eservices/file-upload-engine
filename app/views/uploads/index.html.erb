@@ -2,5 +2,6 @@
 	<div>
 		<%= upload.file.filename %>
 		<%= image_tag upload.file  %>
+		<%= image_tag upload.file.variant(resize: "100x100") %>
 	</div>
 <% end %>
