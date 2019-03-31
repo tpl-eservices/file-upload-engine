@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
 	end
 
 	def index
-		@uploads = Upload.all
+		@uploads = Upload.all.order("created_at desc")
 	end
 
 	def create
