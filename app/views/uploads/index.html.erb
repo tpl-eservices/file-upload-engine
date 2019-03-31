@@ -1,13 +1,19 @@
-<% @uploads.each do |upload| %>
-	<div>
-		<% upload.files.each do |file| %>
-			<%= file.filename %>
-			<%= image_tag file  %>
-			<%= image_tag file.variant(resize: "100x100") %>
-			<%= image_tag file.variant(resize: "300x300") %>
-			<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-		<% end %>
-	</div>
-<% end %>
+<div class="mainContainer">
+	<% @uploads.each do |upload| %>
+		<div class="uploadContainer">
+			<% upload.files.each do |file| %>
+				<div class="fileContainer">
+					<div>
+						<%= file.filename %>
+						<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
+			                method: :delete,
+			                data: { confirm: 'Are you sure?' } %>
+					</div>
+					<%= image_tag(file, alt: file.filename)  %>
+					<%= image_tag file.variant(resize: "100x100") %>
+					<%= image_tag file.variant(resize: "300x300") %>
+					</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
