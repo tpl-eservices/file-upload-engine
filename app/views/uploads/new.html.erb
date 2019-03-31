@@ -1,7 +1,7 @@
 <%= form_with scope: :upload, url: uploads_path, local: true do |form| %>
     <p>
-        <%= form.label :file %><br>
-        <%= form.file_field :file %>
+        <%= form.label :files %><br>
+        <%= form.file_field :files, multiple: true %>
     </p>
     <p>
         <%= form.submit %>

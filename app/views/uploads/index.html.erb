@@ -1,7 +1,10 @@
 <% @uploads.each do |upload| %>
 	<div>
-		<%= upload.file.filename %>
-		<%= image_tag upload.file  %>
-		<%= image_tag upload.file.variant(resize: "100x100") %>
+		<% upload.files.each do |file| %>
+			<%= file.filename %>
+			<%= image_tag file  %>
+			<%= image_tag file.variant(resize: "100x100") %>
+			<%= image_tag file.variant(resize: "300x300") %>	
+		<% end %>
 	</div>
 <% end %>
