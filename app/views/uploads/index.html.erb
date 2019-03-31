@@ -4,7 +4,10 @@
 			<%= file.filename %>
 			<%= image_tag file  %>
 			<%= image_tag file.variant(resize: "100x100") %>
-			<%= image_tag file.variant(resize: "300x300") %>	
+			<%= image_tag file.variant(resize: "300x300") %>
+			<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
 		<% end %>
 	</div>
 <% end %>

@@ -8,11 +8,15 @@ class UploadsController < ApplicationController
 
 	def create
 		@upload = Upload.new(upload_params)
-
-		puts "******************"
-		puts upload_params
-
 		@upload.save
+	end
+
+	def delete_image_attachment
+		# @image = ActiveStorage::Blob.find_signed(params[:id])
+		# @image.purge
+		attachment = ActiveStorage::Attachment.find(params[:id])
+		attachment.purge # or use purge_later
+		redirect_to uploads_url
 	end
 
 	private
