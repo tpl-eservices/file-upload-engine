@@ -1,0 +1,20 @@
+<nav>
+	<a href="/uploads/new">
+		+
+	</a>
+	<a href="/uploads">
+		My Uploads
+	</a>
+	<% if current_user %>
+		<a href="/users/sign_out">
+			Log Out
+		</a>
+	<% else %>
+		<a href="/users/sign_in">
+			Log in
+		</a>
+		<a href="/users/sign_up">
+			Sign Up
+		</a>
+	<% end %>
+</nav>
