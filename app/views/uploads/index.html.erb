@@ -9,10 +9,25 @@
 			                method: :delete,
 			                data: { confirm: 'Are you sure?' } %>
 					</div>
-					<%= image_tag(file, alt: file.filename)  %>
-					<%= image_tag file.variant(resize: "500x500") %>
-					<%= image_tag file.variant(resize: "250x250") %>
+					<div class="imageContainer">
+						<%= image_tag(file, alt: file.filename)  %>
+						<div class="fileSize">
+							Original: <%= bytes_to_megabytes(file.byte_size) %> MB
+						</div>
 					</div>
+					<div class="imageContainer">
+						<%= image_tag file.variant(resize: "500x500") %>
+						<div class="fileSize">
+							500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						</div>
+					</div>
+					<div class="imageContainer">
+						<%= image_tag file.variant(resize: "250x250") %>
+						<div class="fileSize">
+							250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						</div>
+					</div>
+				</div>
 			<% end %>
 		</div>
 	<% end %>
