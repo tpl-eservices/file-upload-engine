@@ -12,6 +12,10 @@ class UploadsController < ApplicationController
 		redirect_to uploads_url
 	end
 
+	def show
+
+	end
+
 	def delete_image_attachment
 		attachment = ActiveStorage::Attachment.find(params[:id])
 		attachment.purge # or use purge_later
