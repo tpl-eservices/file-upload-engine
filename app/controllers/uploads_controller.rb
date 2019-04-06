@@ -25,6 +25,6 @@ class UploadsController < ApplicationController
 	private
 
 	def upload_params
-		params.require(:upload).permit(files: [])
+		params.require(:upload).permit(files: []).merge(user: current_user)
 	end
 end
