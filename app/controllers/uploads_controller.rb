@@ -1,9 +1,10 @@
 class UploadsController < ApplicationController
 	def new
+		@upload = Upload.new
 	end
 
 	def index
-		@uploads = Upload.all.order("created_at desc")
+		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
 	end
 
 	def create
@@ -25,6 +26,6 @@ class UploadsController < ApplicationController
 	private
 
 	def upload_params
-		params.require(:upload).permit(files: [], tags: []).merge(user: current_user)
+		params.require(:upload).permit({ files: [] }, :tag_list, :tag, { tag_ids: [] }, :tag_ids).merge(user: current_user)
 	end
 end
