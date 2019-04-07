@@ -13,6 +13,7 @@
 <% end %>
 
 <%= simple_form_for @upload, url: uploads_path do |f| %>
+	<%= f.input :files, multiple: true %>
 	<%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true} %>
 	<%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
 <% end %>

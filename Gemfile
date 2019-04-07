@@ -15,6 +15,12 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'simple_form'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3' 
+  # add the line below
+  gem 'rails-assets-chosen'
+end
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

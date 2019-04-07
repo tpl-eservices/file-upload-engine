@@ -1,0 +1,4 @@
+<div class = 'col-md-8 offset-2'>
+	<h1><%=@upload.created_at%></h1>
+	<p><small>Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+</div>
