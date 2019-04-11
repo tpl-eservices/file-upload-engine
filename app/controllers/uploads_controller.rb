@@ -26,6 +26,7 @@ class UploadsController < ApplicationController
 	private
 
 	def upload_params
-		params.require(:upload).permit({ files: [] }, :tag_list, :tag, { tag_ids: [] }, :tag_ids).merge(user: current_user)
+		params.require(:upload).permit(files: [], tags: []).merge(user: current_user)
+		# params.require(:upload).permit(:tag_list, :tag, { tag_ids: [] }, :tag_ids, files: []).merge(user: current_user)
 	end
 end
