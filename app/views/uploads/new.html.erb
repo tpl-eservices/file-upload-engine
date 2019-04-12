@@ -1,13 +1,18 @@
-<%= form_with scope: :upload, url: uploads_path, local: true do |form| %>
+<%= form_for @upload, url: {action: "create"}, html: {class: "dropzone", id: "my-dropzone" } do |form| %>
+	<div class="dz-message needsclick">
+		Drop files here or click to upload.
+	</div>
     <p>
-        <%= form.label :files %><br>
-        <%= form.file_field :files, multiple: true %>
+    	<%= form.label :tag_list %>
+    	<%= form.text_field :tag_list, value: @upload.tag_list.to_s %>
     </p>
-    <p>
-        <%= form.label :tags %><br>
-        <%= form.text_field :tags %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
+    <div class="fallback">
+	    <p>
+	        <%= form.label :files %><br>
+	        <%= form.file_field :files, multiple: true %>
+	    </p>
+	    <p>
+	        <%= form.submit %>
+	    </p>
+	</div>
 <% end %>

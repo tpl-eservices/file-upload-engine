@@ -9,8 +9,12 @@ class UploadsController < ApplicationController
 
 	def create
 		@upload = Upload.new(upload_params)
-		@upload.save
-		redirect_to uploads_url
+		if @upload.save
+			redirect_to uploads_url
+		else 
+			render json: { error: "Error making upload" }
+		end
+		
 	end
 
 	def show
@@ -26,7 +30,6 @@ class UploadsController < ApplicationController
 	private
 
 	def upload_params
-		params.require(:upload).permit(files: [], tags: []).merge(user: current_user)
-		# params.require(:upload).permit(:tag_list, :tag, { tag_ids: [] }, :tag_ids, files: []).merge(user: current_user)
+		params.require(:upload).permit(:tag_list, files: []).merge(user: current_user)
 	end
 end
