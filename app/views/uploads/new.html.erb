@@ -1,13 +1,8 @@
+<h3>
+	Upload file
+</h3>
 <%= form_for @upload, url: {action: "create"} do |form| %>
-    <p>
-        <%= form.label :files %><br>
-        <%= form.file_field :files, multiple: true %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-    <p>
-    	<%= form.label :tag_list %>
-    	<%= form.text_field :tag_list, value: @upload.tag_list.to_s %>
-    </p>
+    <%= form.file_field :files, multiple: true %>
+    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags" %>
+    <%= form.submit "Upload" %>
 <% end %>

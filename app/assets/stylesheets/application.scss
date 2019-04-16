@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import "./mixins";
+
+.mainContainer {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	form {
+		width: 70%;
+		margin: 0 auto;
+		input {
+			@include border-box;
+			width: 100%;
+			font-size: 16px;
+			padding: 10px;
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
