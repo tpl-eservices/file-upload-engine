@@ -3,12 +3,14 @@
 		<div class="uploadContainer">
 			<% upload.files.each do |file| %>
 				<div class="fileContainer" title="Filename: <%= file.filename %>">
-					<div class="imageContainer">
-						<%= image_tag(file, alt: file.filename)  %>
-						<div class="fileSize">
-							Original: <%= bytes_to_megabytes(file.byte_size) %> MB
+					<%= link_to(upload) do %>
+						<div class="imageContainer">
+							<%= image_tag(file, alt: file.filename)  %>
+							<div class="fileSize">
+								Original: <%= bytes_to_megabytes(file.byte_size) %> MB
+							</div>
 						</div>
-					</div>
+					<% end %>
 					<div class="imageContainer">
 						<%= image_tag file.variant(resize: "500x500") %>
 						<div class="fileSize">
