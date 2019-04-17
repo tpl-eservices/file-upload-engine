@@ -5,8 +5,6 @@ class UploadsController < ApplicationController
 
 	def index
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
-
-		@tags = ActsAsTaggableOn::Tag.most_used(10)
 	end
 
 	def create

@@ -6,9 +6,7 @@
 		<a href="/uploads">
 			My Uploads
 		</a>
-		<a href="/users/sign_out">
-			Log Out
-		</a>
+		<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 	<% else %>
 		<a href="/users/sign_in">
 			Log in
