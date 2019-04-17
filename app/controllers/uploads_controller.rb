@@ -5,15 +5,17 @@ class UploadsController < ApplicationController
 
 	def index
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
+
+		@tags = ActsAsTaggableOn::Tag.most_used(10)
 	end
 
 	def create
 		@upload = Upload.new(upload_params)
 		if @upload.save
-			# redirect_to uploads_url
-			# need success message here
+			redirect_to uploads_url
+			# render json: { success: "Upload was successful!" }
 		else 
-			render json: { error: "Error making upload" }
+			render json: { error: "Error making upload :(" }
 		end
 		
 	end
