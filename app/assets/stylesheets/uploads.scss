@@ -2,26 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.uploadContainer {
-	display: block;
-	margin-bottom: 20px;
-	.fileContainer {
-		.imageContainer {
-			display: inline-block;
-			width: 33%;
-			img {
-				width: 100%;
-				height: 200px;
-				object-fit: cover;
-			}
-		}
-		.removeContainer {
-			text-align: right;
+.fileContainer {
+	display: inline-block;
+	.imageContainer {
+		display: inline-block;
+		img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
 		}
 	}
-	.tagsContainer {
-		cursor: pointer;
-		font-style: italic;
+	.removeContainer {
+		text-align: right;
 	}
+}
+.tagsContainer {
+	cursor: pointer;
+	font-style: italic;
 }
