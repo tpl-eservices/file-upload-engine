@@ -10,7 +10,8 @@ class UploadsController < ApplicationController
 	def create
 		@upload = Upload.new(upload_params)
 		if @upload.save
-			redirect_to uploads_url
+			# redirect_to uploads_url
+			# need success message here
 		else 
 			render json: { error: "Error making upload" }
 		end

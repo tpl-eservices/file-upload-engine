@@ -1,8 +1,5 @@
-<h3>
-	Upload file
-</h3>
 <%= form_for @upload, url: {action: "create"} do |form| %>
-    <%= form.file_field :files, multiple: true %>
+    <%= form.file_field :files, multiple: true, direct_upload: true %>
     <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags" %>
     <%= form.submit "Upload" %>
 <% end %>
