@@ -24,7 +24,7 @@ class UploadsController < ApplicationController
 	def create
 		@upload = Upload.new(upload_params)
 		if @upload.save
-			redirect_to uploads_url
+			redirect_to upload_path(@upload)
 			# render json: { success: "Upload was successful!" }
 			# flash[:success] = "Upload was successful!"
 		else 
