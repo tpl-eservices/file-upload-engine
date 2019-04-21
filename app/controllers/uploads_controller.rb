@@ -12,14 +12,17 @@ class UploadsController < ApplicationController
 		if @upload.save
 			redirect_to uploads_url
 			# render json: { success: "Upload was successful!" }
+			# flash[:success] = "Upload was successful!"
 		else 
 			render json: { error: "Error making upload :(" }
+			# flash[:error] = "Upload was unsuccessful. Please try again."
 		end
 		
 	end
 
 	def show
 		@upload = Upload.find(params[:id])
+		@uploaded_by = User.find(@upload.user_id).email
 	end
 
 	def delete_image_attachment

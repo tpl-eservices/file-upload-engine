@@ -1,31 +1,38 @@
-<div class = 'col-md-8 offset-2'>
-	<h1><%=@upload.created_at%></h1>
-	<% @upload.files.each do |file| %>
-		<div class="fileContainer" title="Filename: <%= file.filename %>">
-			<div class="imageContainer">
-				<%= image_tag(file, alt: file.filename)  %>
-				<div class="fileSize">
-					Original: <%= bytes_to_megabytes(file.byte_size) %> MB
-				</div>
-			</div>
-			<div class="imageContainer">
-				<%= image_tag file.variant(resize: "500x500") %>
-				<div class="fileSize">
-					500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
-				</div>
-			</div>
-			<div class="imageContainer">
-				<%= image_tag file.variant(resize: "250x250") %>
-				<div class="fileSize">
-					250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
-				</div>
-			</div>
-			<div class="removeContainer">
-				<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
-	                method: :delete,
-	                data: { confirm: 'Are you sure you wish to delete this?' } %>
+<% @upload.files.each do |file| %>
+	<div class="fileContainer" title="Filename: <%= file.filename %>">
+		<div class="imageContainer">
+			<%= image_tag(file, alt: file.filename)  %>
+			<div class="fileSize">
+				Original: <%= bytes_to_megabytes(file.byte_size) %> MB
 			</div>
 		</div>
-	<% end %>
-	<p><small>Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
-</div>
+		<div class="imageContainer">
+			<%= image_tag file.variant(resize: "500x500") %>
+			<div class="fileSize">
+				500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
+			</div>
+		</div>
+		<div class="imageContainer">
+			<%= image_tag file.variant(resize: "250x250") %>
+			<div class="fileSize">
+				250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
+			</div>
+		</div>
+	</div>
+	<div class="removeContainer">
+		<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
+            method: :delete,
+            data: { confirm: 'Are you sure you wish to delete this?' } %>
+	</div>
+	<div class="uploadDetailsContainer">
+		<div>
+			Uploaded by: <%= @uploaded_by %>
+		</div>
+		<div>
+			Uploaded on: <%=formatted_date(@upload.created_at)%>
+		</div>
+		<div>
+			Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+		</div>
+	</div>
+<% end %>

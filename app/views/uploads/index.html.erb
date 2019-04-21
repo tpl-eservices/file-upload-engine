@@ -1,6 +1,6 @@
 <% @uploads.each do |upload| %>
 	<% upload.files.each do |file| %>
-		<div class="fileContainer" title="Filename: <%=file.filename %>">
+		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
 			<%= link_to(upload, class: "fileContainer") do %>
 				<div class="imageContainer">
 					<%= image_tag(file, alt: file.filename)  %>
