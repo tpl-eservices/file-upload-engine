@@ -17,6 +17,10 @@ class UploadsController < ApplicationController
 		end
 	end
 
+	def my_uploads
+		@uploads = current_user.uploads.order("created_at desc")
+	end
+
 	def create
 		@upload = Upload.new(upload_params)
 		if @upload.save

@@ -1,18 +1,10 @@
 <nav>
 	<% if current_user %>
-		<a href="/uploads/new">
-			+
-		</a>
-		<a href="/uploads">
-			My Uploads
-		</a>
+		<%= link_to('+', new_upload_path) %>
+		<%= link_to('My Uploads', my_uploads_path) %>
 		<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 	<% else %>
-		<a href="/users/sign_in">
-			Log in
-		</a>
-		<a href="/users/sign_up">
-			Sign Up
-		</a>
+		<%= link_to('Login', new_user_session_path) %>
+		<%= link_to('Sign Up', new_user_registration_path) %>
 	<% end %>
 </nav>

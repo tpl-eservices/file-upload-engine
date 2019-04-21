@@ -1,0 +1,15 @@
+<% @uploads.each do |upload| %>
+	<% upload.files.each do |file| %>
+		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
+			<%= link_to(upload, class: "fileContainer") do %>
+				<div class="imageContainer">
+					<%= image_tag(file, alt: file.filename)  %>
+				</div>
+			<% end %>
+			<div class="removeContainer">
+				<%= link_to 'X', delete_image_attachment_upload_url(file.id), method: :delete,
+	                data: { confirm: 'Are you sure you wish to delete this?' } %>
+			</div>
+		</div>
+	<% end %>
+<% end %>
