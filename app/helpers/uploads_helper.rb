@@ -6,4 +6,10 @@ module UploadsHelper
 	def file_path(file)
 		ActiveStorage::Blob.service.send(:path_for, file.key)
 	end
+
+	def is_owner(upload)
+		if upload.user == current_user
+			return true
+		end
+	end
 end
