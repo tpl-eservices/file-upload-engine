@@ -4,6 +4,12 @@ class UploadsController < ApplicationController
 	end
 
 	def index
+		puts "*************************************"
+		puts "*************************************"
+		puts "*************************************"
+		puts "*************************************"
+		puts params[:tag]
+
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
 	end
 
