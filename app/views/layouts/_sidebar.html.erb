@@ -1,13 +1,13 @@
 <div class="sidebar">
 	<div>
-		Last 30 days
+		<%= link_to "Last 30 days", uploads_path(date_range: "30_days") %>
 	</div>
 	<div>
-		Last year
+		<%= link_to "Last year", uploads_path(date_range: "last_year") %>
 	</div>
 	<% @tags.each do |tag| %>
 		<div>
-			<%= tag.name %>
+			<%= link_to tag, uploads_path(tag: tag.name) %>
 		</div>
 	<% end %>
 </div>

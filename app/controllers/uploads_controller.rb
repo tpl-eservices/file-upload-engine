@@ -4,13 +4,17 @@ class UploadsController < ApplicationController
 	end
 
 	def index
-		puts "*************************************"
-		puts "*************************************"
-		puts "*************************************"
-		puts "*************************************"
-		puts params[:tag]
-
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
+		if params[:date_range]
+			case params[:date_range]
+			when "30_days"
+				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc")
+			when "last_year"
+				@uploads = Upload.where('created_at > ?', 365.days.ago).order("created_at desc")
+			else
+				@uploads = Upload.all.order("created_at desc")
+			end
+		end
 	end
 
 	def create
