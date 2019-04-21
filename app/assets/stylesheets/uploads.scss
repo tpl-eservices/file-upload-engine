@@ -35,6 +35,16 @@
 	.removeContainer {
 		margin-bottom: 10px;
 	}
+	.fileContainer {
+		.imageContainer {
+			position: relative;
+			.externalLink {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
 	.uploadDetailsContainer {
 		margin-top: 10px;
 	}
