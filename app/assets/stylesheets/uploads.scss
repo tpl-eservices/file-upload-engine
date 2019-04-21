@@ -29,3 +29,13 @@
 	cursor: pointer;
 	font-style: italic;
 }
+
+.uploadContainer {
+	text-align: right;
+	.removeContainer {
+		margin-bottom: 10px;
+	}
+	.uploadDetailsContainer {
+		margin-top: 10px;
+	}
+}
