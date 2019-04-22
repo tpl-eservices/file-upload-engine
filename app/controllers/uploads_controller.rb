@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-	before_action :require_permission, only: :delete_image_attachment
+	# before_action :require_permission, only: :delete_image_attachment
 
 	def new
 		@upload = Upload.new
@@ -47,11 +47,12 @@ class UploadsController < ApplicationController
 		redirect_to uploads_url
 	end
 
-	def require_permission
-		if current_user != Upload.find(params[:id]).user
-			redirect_to root_path
-		end
-	end
+	# below doesn't currently work
+	# def require_permission
+	# 	if current_user != Upload.find(params[:id]).user
+	# 		redirect_to root_path
+	# 	end
+	# end
 
 	private
 

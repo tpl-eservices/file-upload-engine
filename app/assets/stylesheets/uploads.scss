@@ -7,6 +7,11 @@
 .fileContainer {
 	display: inline-block;
 	position: relative;
+	&:hover {
+		.removeContainer {
+			display: block;
+		}
+	}
 	.imageContainer {
 		display: inline-block;
 		img {
@@ -16,6 +21,7 @@
 		}
 	}
 	.removeContainer {
+		display: none;
 		position: absolute;
 		top: 0;
 		right: 0;
