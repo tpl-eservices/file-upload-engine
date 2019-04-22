@@ -17,24 +17,26 @@
 					<%= link_to 'External', Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true) %>
 				</div>
 			</div>
-			<div class="imageContainer">
-				<%= image_tag file.variant(resize: "500x500") %>
-				<div class="fileSize">
-					500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
+			<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+				<div class="imageContainer">
+					<%= image_tag file.variant(resize: "500x500") %>
+					<div class="fileSize">
+						500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
+					</div>
+					<div class="externalLink" title="Open source file">
+						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "500x500"), Rails.application.config.action_mailer.default_url_options) %>
+					</div>
 				</div>
-				<div class="externalLink" title="Open source file">
-					<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "500x500"), Rails.application.config.action_mailer.default_url_options) %>
+				<div class="imageContainer">
+					<%= image_tag file.variant(resize: "250x250") %>
+					<div class="fileSize">
+						250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
+					</div>
+					<div class="externalLink" title="Open source file">
+						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "250x250"), Rails.application.config.action_mailer.default_url_options) %>
+					</div>
 				</div>
-			</div>
-			<div class="imageContainer">
-				<%= image_tag file.variant(resize: "250x250") %>
-				<div class="fileSize">
-					250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
-				</div>
-				<div class="externalLink" title="Open source file">
-					<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "250x250"), Rails.application.config.action_mailer.default_url_options) %>
-				</div>
-			</div>
+			<% end %>
 		</div>
 		<div class="uploadDetailsContainer">
 			<div>

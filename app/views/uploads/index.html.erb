@@ -2,9 +2,15 @@
 	<% upload.files.each do |file| %>
 		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
 			<%= link_to(upload, class: "fileContainer") do %>
-				<div class="imageContainer">
-					<%= image_tag(file, alt: file.filename)  %>
-				</div>
+				<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+					<div class="imageContainer">
+						<%= image_tag(file, alt: file.filename)  %>
+					</div>
+				<% elsif file.content_type == "video/mp4" %>
+					<div class="videoContainer">
+						<%= video_tag rails_blob_path(file), controls: true %>
+					</div>
+				<% end %>
 			<% end %>
 			<% if is_owner(upload) %>
 				<div class="removeContainer">
