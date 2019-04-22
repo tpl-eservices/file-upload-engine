@@ -32,6 +32,9 @@
 
 .uploadContainer {
 	text-align: right;
+	&:not(:last-child) {
+		margin-bottom: 40px;
+	}
 	.removeContainer {
 		margin-bottom: 10px;
 	}
