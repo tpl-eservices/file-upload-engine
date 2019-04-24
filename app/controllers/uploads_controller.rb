@@ -6,19 +6,19 @@ class UploadsController < ApplicationController
 	end
 
 	def index
-		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc") : @uploads = Upload.all.order("created_at desc")
+		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc").paginate(page: params[:page], per_page: 25) : @uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
 		if params[:date_range]
 			case params[:date_range]
 			when "30_days"
-				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc")
+				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "last_year"
-				@uploads = Upload.where('created_at > ?', 365.days.ago).order("created_at desc")
+				@uploads = Upload.where('created_at > ?', 365.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			else
-				@uploads = Upload.all.order("created_at desc")
+				@uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
 			end
 		end
 		if params[:user]
-			@uploads = User.find_by(username: params[:user]).uploads.order("created_at desc")
+			@uploads = User.find_by(username: params[:user]).uploads.order("created_at desc").paginate(page: params[:page], per_page: 25)
 		end
 	end
 
