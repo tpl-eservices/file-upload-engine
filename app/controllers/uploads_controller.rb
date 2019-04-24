@@ -17,8 +17,8 @@ class UploadsController < ApplicationController
 				@uploads = Upload.all.order("created_at desc")
 			end
 		end
-		if params[:user_id]
-			@uploads = User.find(params[:user_id]).uploads.order("created_at desc")
+		if params[:user]
+			@uploads = User.find_by(username: params[:user]).uploads.order("created_at desc")
 		end
 	end
 
