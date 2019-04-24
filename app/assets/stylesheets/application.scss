@@ -47,15 +47,16 @@ a {
 			@include border-box;
 			width: 100%;
 			font-size: 16px;
+			padding: 10px;
+			input[type="file"] {
+				padding: 0;
+			}
 			&:not(:last-child) {
 				margin-bottom: 10px;
 			}
 			&#user_remember_me {
 				width: auto;
 			}
-		}
-		input[type="email"], input[type="password"], input[type="submit"] {
-			padding: 10px;
 		}
 		.tagsinput {
 			margin-bottom: 10px;
