@@ -8,7 +8,7 @@
 			</div>
 		<% end %>
 		<div class="fileContainer" title="Filename: <%= file.filename %>">
-			<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+			<% if is_image(file) %>
 				<div class="imageContainer">
 					<%= image_tag(file, alt: file.filename)  %>
 					<div class="fileSize">
@@ -61,7 +61,7 @@
 			<div>
 				Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
 			</div>
-			<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+			<% if is_image(file) %>
 				<div class="copyEventUrl">
 					Copy Event URL
 				</div>

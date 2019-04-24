@@ -2,7 +2,7 @@
 	<% upload.files.each do |file| %>
 		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
 			<%= link_to(upload, class: "fileContainer") do %>
-				<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+				<% if is_image(file) %>
 					<div class="imageContainer">
 						<%= image_tag(file, alt: file.filename)  %>
 					</div>

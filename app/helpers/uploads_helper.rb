@@ -12,4 +12,10 @@ module UploadsHelper
 			return true
 		end
 	end
+
+	def is_image(file)
+		if file.content_type == "image/jpeg" || file.content_type == "image/png"
+			return true
+		end
+	end
 end
