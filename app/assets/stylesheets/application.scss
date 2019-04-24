@@ -38,6 +38,11 @@ a {
 	form {
 		width: 70%;
 		margin: 0 auto;
+		&.new_user {
+			.field {
+				margin-bottom: 10px;
+			}
+		}
 		input {
 			@include border-box;
 			width: 100%;
@@ -45,8 +50,11 @@ a {
 			&:not(:last-child) {
 				margin-bottom: 10px;
 			}
+			&#user_remember_me {
+				width: auto;
+			}
 		}
-		input[type="submit"] {
+		input[type="email"], input[type="password"], input[type="submit"] {
 			padding: 10px;
 		}
 		.tagsinput {
