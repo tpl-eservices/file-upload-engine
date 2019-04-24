@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-	# before_action :require_permission, only: :delete_image_attachment
+	before_action :authenticate_user!
 
 	def new
 		@upload = Upload.new
@@ -45,13 +45,6 @@ class UploadsController < ApplicationController
 		attachment.purge # or use purge_later
 		redirect_to uploads_url
 	end
-
-	# below doesn't currently work
-	# def require_permission
-	# 	if current_user != Upload.find(params[:id]).user
-	# 		redirect_to root_path
-	# 	end
-	# end
 
 	private
 
