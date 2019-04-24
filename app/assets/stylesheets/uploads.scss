@@ -63,5 +63,15 @@
 	}
 	.uploadDetailsContainer {
 		margin-top: 10px;
+		.copyEventUrl {
+			cursor: pointer;
+		}
+		.copyMessage {
+			display: none;
+			font-style: italic;
+			&.active {
+				display: block;
+			}
+		}
 	}
 }

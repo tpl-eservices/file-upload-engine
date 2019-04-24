@@ -18,22 +18,31 @@
 						<%= link_to 'External', Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true) %>
 					</div>
 				</div>
-				<div class="imageContainer">
-					<%= image_tag file.variant(resize: "500x500") %>
+				<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '600x600'), Rails.application.config.action_mailer.default_url_options) %>">
+					<%= image_tag file.variant(resize: "600x600") %>
 					<div class="fileSize">
-						500x500 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						600x600 | <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "500x500"), Rails.application.config.action_mailer.default_url_options) %>
+						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "600x600"), Rails.application.config.action_mailer.default_url_options) %>
 					</div>
 				</div>
-				<div class="imageContainer">
-					<%= image_tag file.variant(resize: "250x250") %>
+				<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '300x300'), Rails.application.config.action_mailer.default_url_options) %>">
+					<%= image_tag file.variant(resize: "300x300") %>
 					<div class="fileSize">
-						250x250 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						300x300 | <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "250x250"), Rails.application.config.action_mailer.default_url_options) %>
+						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "300x300"), Rails.application.config.action_mailer.default_url_options) %>
+					</div>
+				</div>
+				<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '200x200'), Rails.application.config.action_mailer.default_url_options) %>">
+					<%= image_tag file.variant(resize: "200x200") %>
+					<div class="fileSize">
+						200x200 | <%= bytes_to_megabytes(file.byte_size) %> MB
+					</div>
+					<div class="externalLink" title="Open source file">
+						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "200x200"), Rails.application.config.action_mailer.default_url_options) %>
 					</div>
 				</div>
 			<% else %>
@@ -52,6 +61,13 @@
 			<div>
 				Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
 			</div>
+			<% if file.content_type == "image/jpeg" || file.content_type == "image/png" %>
+				<div class="copyEventUrl">
+					Copy Event URL
+				</div>
+				<div class="copyMessage">
+				</div>
+			<% end %>
 		</div>
 	</div>
 <% end %>
