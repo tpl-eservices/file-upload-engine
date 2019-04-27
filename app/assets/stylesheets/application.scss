@@ -16,6 +16,7 @@
 
 @import "./mixins";
 @import "./colours";
+@import "./fonts";
 
 * {
 	margin: 0;
@@ -25,6 +26,7 @@
 body {
 	background-color: $primary-white;
 	color: $primary-black;
+	font-family: "Noto_Serif";
 }
 
 a {
