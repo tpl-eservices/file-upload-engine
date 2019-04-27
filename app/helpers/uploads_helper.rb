@@ -18,4 +18,16 @@ module UploadsHelper
 			return true
 		end
 	end
+
+	def is_video(file)
+		if file.content_type == "video/mp4" || file.content_type == "video/mov"
+			return true
+		end
+	end
+
+	def is_pdf(file)
+		if file.content_type == "application/pdf"
+			return true
+		end
+	end
 end
