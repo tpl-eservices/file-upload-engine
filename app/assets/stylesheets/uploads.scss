@@ -27,6 +27,14 @@
 			object-fit: cover;
 		}
 	}
+	.pdfContainer {
+		display: inline-block;
+		img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+		}
+	}
 	.downloadContainer, .removeContainer {
 		padding: 5px;
 		img {

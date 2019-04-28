@@ -6,9 +6,13 @@
 					<div class="imageContainer">
 						<%= image_tag(file, alt: file.filename)  %>
 					</div>
-				<% elsif file.content_type == "video/mp4" %>
+				<% elsif is_video(file) %>
 					<div class="videoContainer">
 						<%= video_tag rails_blob_path(file), controls: true %>
+					</div>
+				<% elsif is_pdf(file) %>
+					<div class="pdfContainer">
+						<%= image_tag("pdf_icon.svg") %>
 					</div>
 				<% end %>
 			<% end %>

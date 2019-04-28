@@ -50,10 +50,8 @@
 					<%= video_tag rails_blob_path(file), controls: true %>
 				</div>
 			<% elsif is_pdf(file) %>
-				This is a pdf file and we need an icon here
 				<div class="pdfContainer">
-					<%= video_tag rails_blob_path(file), controls: true %>
-
+					<%= image_tag("pdf_icon.svg") %>
 				</div>
 			<% end %>
 		</div>
