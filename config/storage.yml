@@ -13,7 +13,7 @@ spaces:
   secret_access_key: <%= ENV["S3_SECRET"] %>
   region: sfo2
   bucket: file-upload-engine
-  endpoint: sfo2.digitaloceanspaces.com
+  endpoint: https://sfo2.digitaloceanspaces.com
 
 
 # Remember not to checkin your GCS keyfile to a repository
