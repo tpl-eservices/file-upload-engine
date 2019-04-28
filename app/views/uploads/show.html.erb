@@ -15,7 +15,7 @@
 						Original: <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true) %>
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true), target: :_blank %>
 					</div>
 				</div>
 				<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '600x600'), Rails.application.config.action_mailer.default_url_options) %>">
@@ -24,7 +24,7 @@
 						600x600 | <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "600x600"), Rails.application.config.action_mailer.default_url_options) %>
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "600x600"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 					</div>
 				</div>
 				<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '300x300'), Rails.application.config.action_mailer.default_url_options) %>">
@@ -33,7 +33,7 @@
 						300x300 | <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "300x300"), Rails.application.config.action_mailer.default_url_options) %>
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "300x300"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 					</div>
 				</div>
 				<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '200x200'), Rails.application.config.action_mailer.default_url_options) %>">
@@ -42,7 +42,7 @@
 						200x200 | <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
 					<div class="externalLink" title="Open source file">
-						<%= link_to 'External', Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "200x200"), Rails.application.config.action_mailer.default_url_options) %>
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "200x200"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 					</div>
 				</div>
 			<% elsif is_video(file) %>

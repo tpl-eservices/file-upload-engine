@@ -8,7 +8,7 @@
 	display: inline-block;
 	position: relative;
 	&:hover {
-		.removeContainer {
+		.downloadContainer, .removeContainer {
 			display: block;
 		}
 	}
@@ -27,12 +27,24 @@
 			object-fit: cover;
 		}
 	}
+	.downloadContainer, .removeContainer {
+		padding: 5px;
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	.downloadContainer {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	.removeContainer {
 		display: none;
 		position: absolute;
 		top: 0;
 		right: 0;
-		padding: 5px 7px;
 		a {
 			color: $primary-white;	
 		}
@@ -54,10 +66,21 @@
 	.fileContainer {
 		.imageContainer {
 			position: relative;
+			&:hover {
+				.externalLink {
+					display: block;
+				}
+			}
 			.externalLink {
+				display: none;
 				position: absolute;
 				top: 0;
 				right: 0;
+				padding: 5px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
 			}
 		}
 	}
