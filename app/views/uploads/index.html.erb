@@ -16,9 +16,14 @@
 					</div>
 				<% end %>
 			<% end %>
-				<div class="downloadContainer">
-					<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
-				</div>
+			<div class="userProfileContainer">
+				<% if upload.user.avatar.attached? %>
+					<%= link_to image_tag(upload.user.avatar), uploads_path(user: upload.user.username), title: "Go to #{upload.user.username}'s uploads" %>
+				<% end %>
+			</div>
+			<div class="downloadContainer">
+				<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
+			</div>
 			<% if is_owner(upload) %>
 				<div class="removeContainer">
 					<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(file.id), method: :delete,

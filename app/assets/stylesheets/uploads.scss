@@ -35,7 +35,7 @@
 			object-fit: cover;
 		}
 	}
-	.downloadContainer, .removeContainer {
+	.userProfileContainer, .downloadContainer, .removeContainer {
 		padding: 5px;
 		img {
 			width: 20px;
@@ -43,6 +43,11 @@
 			background-color: $primary-white;
 			padding: 2px;
 		}
+	}
+	.userProfileContainer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 	.downloadContainer {
 		display: none;

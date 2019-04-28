@@ -1,8 +1,19 @@
+@import "./mixins";
+
 nav {
-	text-align: right;
+	@include flex-box;
 	padding: 20px;
+	.navbarContents {
+		@include flex-box;
+		margin-left: auto;
+	}
 	a {
 		margin: 0 10px;
 		font-size: 18px;
+	}
+	img {
+		width: 20px;
+		height: 20px;
+		object-fit: cover;
 	}
 }
