@@ -21,7 +21,7 @@
 				<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '600x600'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "600x600") %>
 					<div class="fileSize">
-						600x600 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						600x600
 					</div>
 					<div class="externalLink" title="Open source file">
 						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "600x600"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
@@ -30,7 +30,7 @@
 				<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '300x300'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "300x300") %>
 					<div class="fileSize">
-						300x300 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						300x300
 					</div>
 					<div class="externalLink" title="Open source file">
 						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "300x300"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
@@ -39,7 +39,7 @@
 				<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '200x200'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "200x200") %>
 					<div class="fileSize">
-						200x200 | <%= bytes_to_megabytes(file.byte_size) %> MB
+						200x200
 					</div>
 					<div class="externalLink" title="Open source file">
 						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "200x200"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
