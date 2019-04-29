@@ -9,8 +9,8 @@ local:
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 spaces:
   service: S3
-  access_key_id: <%= Rails.application.credentials.dig(:spaces, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:spaces, :secret_access_key) %>
+  access_key_id: <%= Rails.application.credentials.spaces[:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials.spaces[:secret_access_key] %>
   region: sfo2
   bucket: file-upload-engine
   endpoint: https://sfo2.digitaloceanspaces.com
