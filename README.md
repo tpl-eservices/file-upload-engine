@@ -1,8 +1,9 @@
 # Installation Instructions:
 
-```bundle install```    
-```rails db:setup```    
-```rails s```
+`cd file-upload-engine`     
+`bundle install`      
+`rails db:setup`     
+`rails s`     
 
 # Logging in on local development:
 
