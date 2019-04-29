@@ -11,7 +11,9 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    <%= render 'layouts/sidebar' %>
+    <% if current_user %>
+      <%= render 'layouts/sidebar' %>
+    <% end %>
     <div class="mainContainer">
       <%= yield %>
     </div>
