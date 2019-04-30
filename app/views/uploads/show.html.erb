@@ -9,16 +9,18 @@
 		<% end %>
 		<div class="fileContainer" title="Filename: <%= file.filename %>">
 			<% if is_image(file) %>
-				<div class="imageContainer original">
-					<%= image_tag(file, alt: file.filename)  %>
+				<div class="originalImageContainer">
+					<div class="imageContainer">
+						<%= image_tag(file, alt: file.filename)  %>
+						<div class="externalLink" title="Open source file">
+							<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true), target: :_blank %>
+						</div>
+					</div>
 					<div class="fileSize">
 						Original: <%= bytes_to_megabytes(file.byte_size) %> MB
 					</div>
-					<div class="externalLink" title="Open source file">
-						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true), target: :_blank %>
-					</div>
 				</div>
-				<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '600x600'), Rails.application.config.action_mailer.default_url_options) %>">
+				<div class="imageContainer" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '600x600'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "600x600") %>
 					<div class="fileSize" title="Image has been resized to a maximum width and/or height of 600px">
 						600px
@@ -27,7 +29,7 @@
 						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "600x600"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 					</div>
 				</div>
-				<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '300x300'), Rails.application.config.action_mailer.default_url_options) %>">
+				<div class="imageContainer" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '300x300'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "300x300") %>
 					<div class="fileSize" title="Image has been resized to a maximum width and/or height of 300px">
 						300px
@@ -36,7 +38,7 @@
 						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: "300x300"), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 					</div>
 				</div>
-				<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '200x200'), Rails.application.config.action_mailer.default_url_options) %>">
+				<div class="imageContainer" url="<%= Rails.application.routes.url_helpers.rails_representation_url(file.variant(resize: '200x200'), Rails.application.config.action_mailer.default_url_options) %>">
 					<%= image_tag file.variant(resize: "200x200") %>
 					<div class="fileSize" title="Image has been resized to a maximum width and/or height of 200px">
 						200px

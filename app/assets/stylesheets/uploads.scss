@@ -13,21 +13,22 @@
 			display: block;
 		}
 	}
-	.imageContainer {
-		display: inline-block;
-		&:not(.original) {
-			img {
-				width: 175px;
-				height: 175px;
-				object-fit: cover;
-			}	
-		}
-		&.original {
-			width: 175px;
-			height: 175px;
+	.originalImageContainer {
+		margin-bottom: 20px;
+		.imageContainer {
+			width: 300px;
 			img {
 				width: 100%;
+				height: auto;
 			}
+		}
+	}
+	.imageContainer {
+		display: inline-block;
+		img {
+			width: 175px;
+			height: 175px;
+			object-fit: cover;
 		}
 	}
 	.videoContainer {
