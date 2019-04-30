@@ -1,5 +1,5 @@
 <%= form_for @upload, url: {action: "create"} do |form| %>
     <%= form.file_field :files, multiple: true, direct_upload: true, required: true %>
-    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags" %>
+    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
     <%= form.submit "Upload" %>
 <% end %>

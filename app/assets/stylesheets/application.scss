@@ -62,6 +62,12 @@ a {
 		}
 		.tagsinput {
 			margin-bottom: 10px;
+			#upload_tag_list_addTag {
+				width: 100%;
+			}
+			input {
+				min-width: 100%;
+			}
 		}
 	}
 }
