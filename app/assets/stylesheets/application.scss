@@ -38,8 +38,7 @@ a {
 	width: 70%;
 	margin: 0 auto;
 	form {
-		width: 70%;
-		margin: 0 auto;
+		margin-bottom: 10px;
 		&.new_user {
 			.field {
 				margin-bottom: 10px;
@@ -62,11 +61,10 @@ a {
 		}
 		.tagsinput {
 			margin-bottom: 10px;
-			div {
-				width: 100%;
-			}
+			padding: 10px;
 			input {
-				min-width: 100%;
+				padding: 0;
+				margin: 0;
 			}
 		}
 	}

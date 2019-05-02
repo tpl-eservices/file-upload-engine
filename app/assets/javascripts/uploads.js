@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', function() {
 	$('#upload_tag_list').tagsInput({
 		'height': 'auto',
-		'width': 'auto',
-		'defaultText': 'add a tag (use commas to separate)'
+		'width': 'auto'
 	});
 
 	$(".copyEventUrl").click(function() {
