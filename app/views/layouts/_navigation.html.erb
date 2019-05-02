@@ -4,7 +4,13 @@
 			<%= link_to('+', new_upload_path) %>
 			<%= link_to('My Uploads', uploads_path(user: current_user.username)) %>
 			<% if current_user.avatar.attached? %>
-				<%= image_tag current_user.avatar.variant(resize: "100x100") %>
+				<label for="avatarUpload">
+				    <%= image_tag current_user.avatar.variant(resize: "100x100"), class: "avatar" %>
+				</label>
+				<%= form_for(current_user, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
+					<%= f.file_field :avatar, id: "avatarUpload" %>
+					<%= f.submit "Update", class: "updateAvatar" %>
+				<% end %>
 			<% end %>
 			<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 		<% else %>

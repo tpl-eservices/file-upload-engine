@@ -6,6 +6,15 @@ nav {
 	.navbarContents {
 		@include flex-box;
 		margin-left: auto;
+		label {
+			font-size: 0;
+		}
+		.avatar {
+			cursor: pointer;
+		}
+		#avatarUpload {
+			display: none;
+		}
 	}
 	a {
 		margin: 0 10px;
