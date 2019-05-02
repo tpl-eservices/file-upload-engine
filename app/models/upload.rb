@@ -24,4 +24,13 @@ class Upload < ApplicationRecord
 	# 		Tag.where(name: n.strip).first_or_create!
 	# 	end
 	# end
+
+	# validate :validate_tag
+
+	# def validate_tag
+	# 	tag_list.each do |tag|
+	# 		# This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
+	# 		errors.add(:tag_list, "Please enter the code in the right format") unless tag =~ /^[A-Z][0-9]$/
+	# 	end
+	# end
 end
