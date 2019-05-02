@@ -9,7 +9,7 @@
 				</label>
 				<%= form_for(current_user, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
 					<%= f.file_field :avatar, id: "avatarUpload" %>
-					<%= f.submit "Update", class: "updateAvatar" %>
+					<%= f.submit "Update", id: "updateAvatar" %>
 				<% end %>
 			<% end %>
 			<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
