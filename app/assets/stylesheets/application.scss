@@ -48,7 +48,7 @@ a {
 			width: 100%;
 			font-size: 16px;
 			padding: 10px;
-			input[type="file"] {
+			&[type="file"] {
 				padding: 0;
 			}
 			&:not(:last-child) {
