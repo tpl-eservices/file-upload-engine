@@ -1,5 +1,5 @@
 <% @upload.files.each do |file| %>
-	<div class="uploadContainer">
+	<div class="showContainer">
 		<% if is_owner(@upload) || current_user.admin? %>
 			<div class="removeContainer">
 				<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
@@ -57,7 +57,7 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="uploadDetailsContainer">
+		<div class="detailsContainer">
 			<div>
 				Uploaded by: <%= @uploaded_by %>
 			</div>

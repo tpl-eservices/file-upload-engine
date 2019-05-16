@@ -82,7 +82,7 @@
 	font-style: italic;
 }
 
-.uploadContainer {
+.showContainer {
 	text-align: right;
 	&:not(:last-child) {
 		margin-bottom: 40px;
@@ -113,7 +113,7 @@
 			}
 		}
 	}
-	.uploadDetailsContainer {
+	.detailsContainer {
 		margin-top: 10px;
 		.copyEventUrl {
 			cursor: pointer;
