@@ -9,6 +9,8 @@ class UploadsController < ApplicationController
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc").paginate(page: params[:page], per_page: 25) : @uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
 		if params[:date_range]
 			case params[:date_range]
+			when "today"
+				@uploads = Upload.where('created_at > ?', 1.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "30_days"
 				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "last_year"
