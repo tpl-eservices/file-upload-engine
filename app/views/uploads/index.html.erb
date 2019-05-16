@@ -27,7 +27,7 @@
 				</div>
 				<% if is_owner(upload) || current_user.admin? %>
 					<div class="removeContainer">
-						<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(file.id), method: :delete,
+						<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(id: file.id, upload_id: upload.id), method: :delete,
 			                data: { confirm: 'Are you sure you wish to delete this?' }, title: "Delete file" %>
 					</div>
 				<% end %>
@@ -36,5 +36,5 @@
 	<% end %>
 	<%= will_paginate @uploads %>
 <% else %>
-	No images found, <%= link_to('click here', new_upload_path) %> to upload one!
+	No files found, <%= link_to('click here', new_upload_path) %> to upload one!
 <% end %>
