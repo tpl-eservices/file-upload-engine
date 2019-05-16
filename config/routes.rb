@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'settings/index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 	get 'welcome/index'
 
@@ -10,5 +11,9 @@ Rails.application.routes.draw do
 		end
 		resources :tags
 		root 'uploads#new'
+
+		namespace :admin do
+			resources :settings, :tags
+		end
 	end
 end
