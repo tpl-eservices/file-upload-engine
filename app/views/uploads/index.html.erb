@@ -1,37 +1,40 @@
-<% @uploads.each do |upload| %>
-	<% upload.files.each do |file| %>
-		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
-			<%= link_to(upload, class: "fileContainer") do %>
-				<% if is_image(file) %>
-					<div class="imageContainer">
-						<%= image_tag(file, alt: file.filename)  %>
-					</div>
-				<% elsif is_video(file) %>
-					<div class="videoContainer">
-						<%= video_tag rails_blob_path(file), controls: true %>
-					</div>
-				<% elsif is_pdf(file) %>
-					<div class="pdfContainer">
-						<%= image_tag("pdf_icon.svg") %>
-					</div>
+<% if @uploads.length > 0 %>
+	<% @uploads.each do |upload| %>
+		<% upload.files.each do |file| %>
+			<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
+				<%= link_to(upload, class: "fileContainer") do %>
+					<% if is_image(file) %>
+						<div class="imageContainer">
+							<%= image_tag(file, alt: file.filename)  %>
+						</div>
+					<% elsif is_video(file) %>
+						<div class="videoContainer">
+							<%= video_tag rails_blob_path(file), controls: true %>
+						</div>
+					<% elsif is_pdf(file) %>
+						<div class="pdfContainer">
+							<%= image_tag("pdf_icon.svg") %>
+						</div>
+					<% end %>
 				<% end %>
-			<% end %>
-			<div class="userProfileContainer">
-				<% if upload.user.avatar.attached? %>
-					<%= link_to image_tag(upload.user.avatar), uploads_path(user: upload.user.username), title: "Go to #{upload.user.username}'s uploads" %>
-				<% end %>
-			</div>
-			<div class="downloadContainer">
-				<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
-			</div>
-			<% if is_owner(upload) || current_user.admin? %>
-				<div class="removeContainer">
-					<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(file.id), method: :delete,
-		                data: { confirm: 'Are you sure you wish to delete this?' }, title: "Delete file" %>
+				<div class="userProfileContainer">
+					<% if upload.user.avatar.attached? %>
+						<%= link_to image_tag(upload.user.avatar), uploads_path(user: upload.user.username), title: "Go to #{upload.user.username}'s uploads" %>
+					<% end %>
 				</div>
-			<% end %>
-		</div>
+				<div class="downloadContainer">
+					<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
+				</div>
+				<% if is_owner(upload) || current_user.admin? %>
+					<div class="removeContainer">
+						<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(file.id), method: :delete,
+			                data: { confirm: 'Are you sure you wish to delete this?' }, title: "Delete file" %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
 	<% end %>
+	<%= will_paginate @uploads %>
+<% else %>
+	No images found, <%= link_to('click here', new_upload_path) %> to upload one!
 <% end %>
-
-<%= will_paginate @uploads %>
