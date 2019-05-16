@@ -24,7 +24,7 @@
 			<div class="downloadContainer">
 				<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
 			</div>
-			<% if is_owner(upload) %>
+			<% if is_owner(upload) || current_user.admin? %>
 				<div class="removeContainer">
 					<%= link_to image_tag("trash_icon.svg"), delete_image_attachment_upload_url(file.id), method: :delete,
 		                data: { confirm: 'Are you sure you wish to delete this?' }, title: "Delete file" %>

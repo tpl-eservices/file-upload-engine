@@ -1,6 +1,6 @@
 <% @upload.files.each do |file| %>
 	<div class="uploadContainer">
-		<% if is_owner(@upload) %>
+		<% if is_owner(@upload) || current_user.admin? %>
 			<div class="removeContainer">
 				<%= link_to 'Remove', delete_image_attachment_upload_url(file.id),
 		            method: :delete,
