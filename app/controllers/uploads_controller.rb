@@ -39,6 +39,7 @@ class UploadsController < ApplicationController
 	def show
 		@upload = Upload.find(params[:id])
 		@uploaded_by = User.find(@upload.user_id).email
+		@setting = Setting.find(1)
 	end
 
 	def delete_image_attachment

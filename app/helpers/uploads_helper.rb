@@ -30,4 +30,16 @@ module UploadsHelper
 			return true
 		end
 	end
+
+	def large_image_resize(setting)
+		return "#{setting.large_image}x#{setting.large_image}"
+	end
+
+	def medium_image_resize(setting)
+		return "#{setting.medium_image}x#{setting.medium_image}"
+	end
+
+	def small_image_resize(setting)
+		return "#{setting.small_image}x#{setting.small_image}"
+	end
 end
