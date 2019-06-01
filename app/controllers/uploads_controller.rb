@@ -34,7 +34,6 @@ class UploadsController < ApplicationController
 			render json: { error: "Error making upload :(" }
 			# flash[:error] = "Upload was unsuccessful. Please try again."
 		end
-		
 	end
 
 	def show

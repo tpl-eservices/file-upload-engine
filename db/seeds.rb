@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Tag.create(name: "Events")
-Tag.create(name: "Programs")
-Tag.create(name: "Classes")
-Tag.create(name: "Misc")
+# Tag.create(name: "Events")
+# Tag.create(name: "Programs")
+# Tag.create(name: "Classes")
+# Tag.create(name: "Misc")
+Setting.create(large_image: 600, medium_image: 300, small_image: 200)

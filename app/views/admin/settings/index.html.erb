@@ -1,0 +1,34 @@
+<%= form_for @setting, url: admin_setting_path(@setting) do |form| %>
+    <% if @setting.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@setting.errors.count, "error") %> prohibited
+                the settings from being saved:
+            </h2>
+            <ul>
+                <% @setting.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <p>
+        <%= form.label :large_image %><br>
+        <%= form.text_field :large_image %>
+    </p>
+    
+    <p>
+        <%= form.label :medium_image %><br>
+        <%= form.text_area :medium_image %>
+    </p>
+
+    <p>
+        <%= form.label :small_image %><br>
+        <%= form.text_area :small_image %>
+    </p>
+    
+    <p>
+        <%= form.submit "Update settings" %>
+    </p>
+<% end %>
