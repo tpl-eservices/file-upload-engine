@@ -51,6 +51,7 @@
             </td>
             <td>
                 <%= user.admin %>
+                <%= link_to "Toggle", toggle_user_admin_admin_setting_path(user) %>
             </td>
         </tr>
     <% end %>

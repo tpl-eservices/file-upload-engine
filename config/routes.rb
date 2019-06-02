@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 		root 'uploads#new'
 
 		namespace :admin do
-			resources :settings, :tags
+			resources :settings do
+				member do
+				  get :toggle_user_admin
+				end
+			end
+			resources :tags
 		end
 	end
 end
