@@ -1,3 +1,4 @@
+<h2>Image Sizing Management</h2>
 <%= form_for @setting, url: admin_setting_path(@setting) do |form| %>
     <% if @setting.errors.any? %>
         <div id="error_explanation">
@@ -32,3 +33,25 @@
         <%= form.submit "Update settings" %>
     </p>
 <% end %>
+
+<h2>User Management</h2>
+<table>
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Admin
+        </th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+            <td>
+                <%= user.email %>
+            </td>
+            <td>
+                <%= user.admin %>
+            </td>
+        </tr>
+    <% end %>
+</table>
