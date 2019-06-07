@@ -32,6 +32,9 @@ class UploadsController < ApplicationController
 			tags = tags.split(",")
 			tags.each do |tag|
 				recent_tags.push(tag) unless recent_tags.include?(tag)
+				if recent_tags.length > 5
+					recent_tags.shift
+				end
 			end
 			current_user.recent_tags = recent_tags
 			current_user.save
