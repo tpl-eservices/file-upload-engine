@@ -27,6 +27,14 @@ class UploadsController < ApplicationController
 	def create
 		@upload = Upload.new(upload_params)
 		if @upload.save
+			recent_tags = current_user.recent_tags
+			tags = upload_params[:tag_list]
+			tags = tags.split(",")
+			tags.each do |tag|
+				recent_tags.push(tag) unless recent_tags.include?(tag)
+			end
+			current_user.recent_tags = recent_tags
+			current_user.save
 			redirect_to upload_path(@upload)
 			# render json: { success: "Upload was successful!" }
 			# flash[:success] = "Upload was successful!"
