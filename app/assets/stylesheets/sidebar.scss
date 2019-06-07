@@ -14,6 +14,9 @@
 	.tags {
 		border-top: 2px solid silver;
 		padding-top: 10px;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
 	}
 	.heading {
 		font-style: italic;

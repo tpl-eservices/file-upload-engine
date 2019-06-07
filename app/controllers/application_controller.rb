@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 
 	def set_tags
 		@tags = ActsAsTaggableOn::Tag.most_used(10)
+		if current_user
+			@most_recent_tags = current_user.recent_tags
+		end
 	end
 
 	protected

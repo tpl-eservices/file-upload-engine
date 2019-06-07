@@ -20,4 +20,16 @@
 			</div>
 		<% end %>
 	</div>
+	<% if @most_recent_tags.length > 0 %>
+		<div class="tags">
+			<div class="heading">
+				Your most recent tags
+			</div>
+			<% @most_recent_tags.each do |tag| %>
+				<div>
+					#<%= link_to tag, uploads_path(tag: tag.name) %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
 </div>
