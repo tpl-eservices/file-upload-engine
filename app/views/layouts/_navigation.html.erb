@@ -10,7 +10,7 @@
 			    	<%= image_tag("avatar_icon.svg", class: "avatar")  %>
 			    <% end %>
 			</label>
-			<%= form_for(current_user, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
+			<%= form_for(current_user, as: :user, url: update_avatar_path(:user), html: { method: :put }) do |f| %>
 				<%= f.file_field :avatar, id: "avatarUpload" %>
 				<%= f.submit "Update", id: "updateAvatar" %>
 			<% end %>

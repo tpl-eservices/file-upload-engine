@@ -38,6 +38,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def update_avatar
+    user = current_user
+    if user.update(user_params)
+      redirect_to uploads_path(current_user)
+    else
+      render "edit"
+    end
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -65,6 +74,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :avatar)
   end
 end

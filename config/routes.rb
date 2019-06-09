@@ -20,5 +20,9 @@ Rails.application.routes.draw do
 			end
 			resources :tags
 		end
+
+		devise_scope :user do
+			put 'update_avatar', to: 'users/registrations#update_avatar'
+		end
 	end
 end
