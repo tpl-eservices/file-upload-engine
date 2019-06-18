@@ -7,7 +7,7 @@ module ApplicationHelper
 		if ActsAsTaggableOn::Tag.find_by(name: tag) && ActsAsTaggableOn::Tag.find_by(name: tag).name
 			return ActsAsTaggableOn::Tag.find_by(name: tag).name
 		else
-			return null
+			return false
 		end
 	end
 end
