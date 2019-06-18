@@ -4,6 +4,10 @@ module ApplicationHelper
 	end
 
 	def tag_object(tag)
-		ActsAsTaggableOn::Tag.find_by(name: tag).name
+		if ActsAsTaggableOn::Tag.find_by(name: tag) && ActsAsTaggableOn::Tag.find_by(name: tag).name
+			return ActsAsTaggableOn::Tag.find_by(name: tag).name
+		else
+			return null
+		end
 	end
 end
