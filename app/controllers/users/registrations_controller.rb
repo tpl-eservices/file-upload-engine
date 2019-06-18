@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_avatar
     user = current_user
     if user.update(user_params)
-      redirect_to uploads_path(current_user)
+      redirect_to uploads_path(user: current_user.username)
     else
       render "edit"
     end
