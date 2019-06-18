@@ -11,7 +11,7 @@
 			    <% end %>
 			</label>
 			<%= form_for(current_user, as: :user, url: update_avatar_path(:user), html: { method: :put }) do |f| %>
-				<%= f.file_field :avatar, id: "avatarUpload" %>
+				<%= f.file_field :avatar, id: "avatarUpload", onchange: "this.form.submit()" %>
 				<%= f.submit "Update", id: "updateAvatar" %>
 			<% end %>
 			<% if current_user.admin? %>
