@@ -48,11 +48,14 @@ a {
 			width: 100%;
 			font-size: 16px;
 			padding: 10px;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
 			&[type="file"] {
 				padding: 0;
+			}
+			&[type="submit"] {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				cursor: pointer;
 			}
 			&:not(:last-child) {
 				margin-bottom: 10px;
