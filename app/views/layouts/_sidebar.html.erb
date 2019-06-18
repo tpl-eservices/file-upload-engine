@@ -26,9 +26,11 @@
 				Your most recent tags
 			</div>
 			<% @most_recent_tags.each do |tag| %>
-				<div>
-					#<%= link_to tag, uploads_path(tag: tag_object(tag)) %>
-				</div>
+				<% if tag_object(tag) %>
+					<div>
+						#<%= link_to tag, uploads_path(tag: tag_object(tag)) %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	<% end %>
