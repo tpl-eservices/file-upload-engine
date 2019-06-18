@@ -11,9 +11,9 @@ spaces:
   service: S3
   access_key_id: <%= Rails.application.credentials.spaces[:access_key_id] %>
   secret_access_key: <%= Rails.application.credentials.spaces[:secret_access_key] %>
-  region: sfo2
-  bucket: file-upload-engine
-  endpoint: https://sfo2.digitaloceanspaces.com
+  region: nyc3
+  bucket: fileuploadimagestore
+  endpoint: https://nyc3.digitaloceanspaces.com/
 
 
 # Remember not to checkin your GCS keyfile to a repository
