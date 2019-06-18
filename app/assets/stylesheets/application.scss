@@ -48,6 +48,9 @@ a {
 			width: 100%;
 			font-size: 16px;
 			padding: 10px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
 			&[type="file"] {
 				padding: 0;
 			}
