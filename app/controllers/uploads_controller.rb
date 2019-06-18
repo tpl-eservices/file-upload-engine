@@ -31,6 +31,7 @@ class UploadsController < ApplicationController
 			tags = upload_params[:tag_list]
 			tags = tags.split(",")
 			tags.each do |tag|
+				tag = tag.parameterize
 				recent_tags.push(tag) unless recent_tags.include?(tag)
 				if recent_tags.length > 5
 					recent_tags.shift
