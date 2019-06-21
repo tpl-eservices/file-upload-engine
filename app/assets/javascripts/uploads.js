@@ -5,9 +5,9 @@ $(document).on('turbolinks:load', function() {
 	});
 
 	$(".copyEventUrl").click(function() {
-		let largeUrl = $(this).closest(".uploadDetailsContainer").prev().find(".imageContainer.large").attr("url"),
-			mediumUrl = $(this).closest(".uploadDetailsContainer").prev().find(".imageContainer.medium").attr("url"),
-			smallUrl = $(this).closest(".uploadDetailsContainer").prev().find(".imageContainer.small").attr("url"),
+		let largeUrl = $(this).closest(".detailsContainer").prev().find(".imageContainer.large").attr("url"),
+			mediumUrl = $(this).closest(".detailsContainer").prev().find(".imageContainer.medium").attr("url"),
+			smallUrl = $(this).closest(".detailsContainer").prev().find(".imageContainer.small").attr("url"),
 			eventUrl = {
 				smallUrl: smallUrl,
 				mediumUrl: mediumUrl,
