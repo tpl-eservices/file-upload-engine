@@ -54,6 +54,15 @@ class UploadsController < ApplicationController
 		@setting = Setting.find(1)
 	end
 
+	def update
+		@upload = Upload.find(params[:id])
+		if @upload.update(upload_params)
+			redirect_to upload_path(@upload)
+		else
+			render "edit"
+		end
+	end
+
 	def delete_image_attachment
 		attachment = ActiveStorage::Attachment.find(params[:id])
 		attachment.purge # or use purge_later

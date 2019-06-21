@@ -67,6 +67,10 @@
 			<div>
 				Tags: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
 			</div>
+			<%= form_for @upload, url: {action: "update"} do |form| %>
+			    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
+			    <%= form.submit "Save" %>
+			<% end %>
 			<% if is_image(file) %>
 				<div class="copyEventUrl">
 					Copy Event URL
