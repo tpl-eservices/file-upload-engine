@@ -11,6 +11,8 @@ class UploadsController < ApplicationController
 			case params[:date_range]
 			when "today"
 				@uploads = Upload.where('created_at > ?', 1.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+			when "7_days"
+				@uploads = Upload.where('created_at > ?', 7.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "30_days"
 				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "last_year"
@@ -52,6 +54,15 @@ class UploadsController < ApplicationController
 		@upload = Upload.find(params[:id])
 		@uploaded_by = User.find(@upload.user_id).email
 		@setting = Setting.find(1)
+	end
+
+	def update
+		@upload = Upload.find(params[:id])
+		if @upload.update(upload_params)
+			redirect_to upload_path(@upload)
+		else
+			render "edit"
+		end
 	end
 
 	def delete_image_attachment

@@ -136,5 +136,18 @@
 		a {
 			text-decoration: none;
 		}
+		.toggleTagEdit {
+			cursor: pointer;
+			font-weight: bold;
+		}
+	}
+
+	.edit_upload {
+		display: none;
+		width: 20%;
+		margin-top: 10px;
+		&.active {
+			display: inline-block;
+		}
 	}
 }

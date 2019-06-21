@@ -18,6 +18,10 @@ $(document).on('turbolinks:load', function() {
 		$(this).next().addClass("active");
 		$(this).next().html("Copied event url to clipboard.");
 	});
+
+	$(".toggleTagEdit").click(function() {
+		$(".edit_upload").toggleClass("active");
+	});
 });
 
 function copyToClipboard(text){
