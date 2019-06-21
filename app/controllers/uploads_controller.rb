@@ -11,6 +11,8 @@ class UploadsController < ApplicationController
 			case params[:date_range]
 			when "today"
 				@uploads = Upload.where('created_at > ?', 1.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+			when "7_days"
+				@uploads = Upload.where('created_at > ?', 7.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "30_days"
 				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "last_year"
