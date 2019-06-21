@@ -112,6 +112,12 @@
 				}
 			}
 		}
+		.videoContainer {
+			video {
+				width: 450px;
+				height: auto;
+			}
+		}
 	}
 	.detailsContainer {
 		margin-top: 10px;
