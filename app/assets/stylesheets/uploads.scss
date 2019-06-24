@@ -33,7 +33,10 @@
 	}
 	.videoContainer {
 		display: inline-block;
+		overflow: hidden;
+		font-size: 0;
 		video {
+			width: 175px;
 			height: 175px;
 			object-fit: cover;
 		}
