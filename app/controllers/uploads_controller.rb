@@ -52,7 +52,11 @@ class UploadsController < ApplicationController
 
 	def show
 		@upload = Upload.find(params[:id])
-		@uploaded_by = User.find(@upload.user_id).email
+		if User.exists?(@upload.user_id)
+			@uploaded_by = User.find(@upload.user_id).email
+		else
+			@uploaded_by = "User deleted"
+		end
 		@setting = Setting.find(1)
 	end
 
