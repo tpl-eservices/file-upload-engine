@@ -30,8 +30,6 @@ class UploadsController < ApplicationController
 		if params[:user]
 			user = User.find_by(username: params[:user])
 			@uploads = Upload.where(user: user).order("created_at desc").paginate(page: params[:page], per_page: 25)
-
-			# @uploads = User.find_by(username: params[:user]).uploads.order("created_at desc").paginate(page: params[:page], per_page: 25)
 			@files = ActiveStorage::Attachment.where(record: Upload.where(user: user)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 		end
 	end
