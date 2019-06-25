@@ -21,6 +21,9 @@
 					<% if upload.user && upload.user.avatar.attached? %>
 						<%= link_to image_tag(upload.user.avatar), uploads_path(user: upload.user.username), title: "Go to #{upload.user.username}'s uploads" %>
 					<% end %>
+					<% if upload.user && !upload.user.avatar.attached? %>
+						<%= link_to image_tag("avatar_icon.svg"), uploads_path(user: upload.user.username), title: "Go to #{upload.user.username}'s uploads" %>
+					<% end %>
 				</div>
 				<div class="downloadContainer">
 					<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
