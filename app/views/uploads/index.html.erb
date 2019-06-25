@@ -1,14 +1,14 @@
 <% if @files.length > 0 %>
 	<% @files.each do |file| %>
-		<div class="fileContainer" title="Uploaded on: <%=formatted_date(file.created_at) %>">
+		<div class="fileContainer" title="<%= file.filename %> | Uploaded on: <%=formatted_date(file.created_at) %>">
 			<%= link_to(file.record, class: "fileContainer") do %>
 				<% if is_image(file) %>
 					<div class="imageContainer">
 						<%= image_tag(file, alt: file.filename)  %>
 					</div>
 				<% elsif is_video(file) %>
-					<div class="videoContainer">
-						<%= video_tag rails_blob_path(file) %>
+					<div class="imageContainer">
+						<%= image_tag("video_icon.svg", alt: file.filename)  %>
 					</div>
 				<% elsif is_pdf(file) %>
 					<div class="pdfContainer">
