@@ -122,29 +122,18 @@
 			}
 		}
 	}
-	.detailsContainer {
-		margin-top: 10px;
+	.urlContainer {
 		.copyEventUrl {
 			cursor: pointer;
 			font-weight: 600;
 			margin-top: 10px;
 		}
-		.copyMessage {
-			display: none;
-			font-style: italic;
-			&.active {
-				display: block;
-			}
-		}
-		a {
-			text-decoration: none;
-		}
-		.toggleTagEdit {
-			cursor: pointer;
-			font-weight: bold;
-		}
 	}
+}
 
+.detailsContainer {
+	margin-top: 10px;
+	text-align: right;
 	.edit_upload {
 		display: none;
 		width: 20%;
@@ -152,5 +141,19 @@
 		&.active {
 			display: inline-block;
 		}
+	}
+	.copyMessage {
+		display: none;
+		font-style: italic;
+		&.active {
+			display: block;
+		}
+	}
+	a {
+		text-decoration: none;
+	}
+	.toggleTagEdit {
+		cursor: pointer;
+		font-weight: bold;
 	}
 }
