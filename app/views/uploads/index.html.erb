@@ -1,6 +1,6 @@
 <% if @files.length > 0 %>
 	<% @files.each do |file| %>
-		<div class="fileContainer" title="<%= file.filename %> | Uploaded on: <%=formatted_date(file.created_at) %>">
+		<div class="fileContainer" title="<% if is_video(file) %><%= file.filename %> | <% end %>Uploaded on: <%=formatted_date(file.created_at) %>">
 			<%= link_to(file.record, class: "fileContainer") do %>
 				<% if is_image(file) %>
 					<div class="imageContainer">
