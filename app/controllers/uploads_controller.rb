@@ -68,6 +68,17 @@ class UploadsController < ApplicationController
 		@setting = Setting.find(1)
 	end
 
+	def show_file
+		@upload = Upload.find(params[:id])
+		@file = ActiveStorage::Attachment.find(params[:file_id])
+		if User.exists?(@upload.user_id)
+			@uploaded_by = User.find(@upload.user_id).email
+		else
+			@uploaded_by = "User deleted"
+		end
+		@setting = Setting.find(1)
+	end
+
 	def update
 		@upload = Upload.find(params[:id])
 		if @upload.update(upload_params)
