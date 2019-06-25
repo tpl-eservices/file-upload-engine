@@ -1,0 +1,83 @@
+<div class="showContainer">
+	<% if is_owner(@upload) || current_user.admin? %>
+		<div class="removeContainer">
+			<%= link_to 'Remove', delete_image_attachment_upload_url(id: @file.id, upload_id: @upload.id),
+	            method: :delete,
+	            data: { confirm: 'Are you sure you wish to delete this?' } %>
+		</div>
+	<% end %>
+	<div class="fileContainer" title="Filename: <%= @file.filename %>">
+		<% if is_image(@file) %>
+			<div class="originalImageContainer">
+				<div class="imageContainer">
+					<%= image_tag(@file, alt: @file.filename)  %>
+					<div class="externalLink" title="Open source file">
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(@file, only_path: true), target: :_blank %>
+					</div>
+				</div>
+				<div class="fileSize">
+					Original: <%= bytes_to_megabytes(@file.byte_size) %> MB
+				</div>
+			</div>
+			<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: large_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+				<%= image_tag @file.variant(resize: large_image_resize(@setting)) %>
+				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.large_image}px">
+					<%= @setting.large_image %>px
+				</div>
+				<div class="externalLink" title="Open source file">
+					<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: large_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
+				</div>
+			</div>
+			<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: medium_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+				<%= image_tag @file.variant(resize: medium_image_resize(@setting)) %>
+				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.medium_image}px">
+					<%= @setting.medium_image %>px
+				</div>
+				<div class="externalLink" title="Open source file">
+					<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: medium_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
+				</div>
+			</div>
+			<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: small_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+				<%= image_tag @file.variant(resize: small_image_resize(@setting)) %>
+				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.small_image}px">
+					<%= @setting.small_image %>px
+				</div>
+				<div class="externalLink" title="Open source file">
+					<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: small_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
+				</div>
+			</div>
+		<% elsif is_video(@file) %>
+			<div class="videoContainer">
+				<%= video_tag rails_blob_path(@file), controls: true %>
+			</div>
+		<% elsif is_pdf(@file) %>
+			<div class="pdfContainer">
+				<%= image_tag("pdf_icon.svg") %>
+			</div>
+		<% end %>
+	</div>
+	<div class="urlContainer">
+		<% if is_image(@file) %>
+			<div class="copyEventUrl">
+				Copy Event URL
+			</div>
+			<div class="copyMessage">
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="detailsContainer">
+	<div>
+		Uploaded by: <%= @uploaded_by %>
+	</div>
+	<div>
+		Uploaded on: <%=formatted_date(@upload.created_at)%>
+	</div>
+	<div>
+		Tags <span class="<% if is_owner(@upload) || current_user.admin? %>toggleTagEdit<% end %>" title="Toggle Edit Tags">(Edit)</span>: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
+	</div>
+	<%= form_for @upload, url: {action: "update"} do |form| %>
+	    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
+	    <%= form.submit "Save" %>
+	<% end %>
+</div>

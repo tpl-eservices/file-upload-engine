@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 		resources :uploads do
 		  member do
 		    delete :delete_image_attachment
+		    get "file/:file_id", to: "uploads#show_file", as: "single"
 		  end
 		end
 		resources :tags

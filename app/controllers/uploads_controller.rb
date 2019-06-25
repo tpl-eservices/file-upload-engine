@@ -7,22 +7,30 @@ class UploadsController < ApplicationController
 
 	def index
 		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc").paginate(page: params[:page], per_page: 25) : @uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
+		params[:tag] ? @files = ActiveStorage::Attachment.where(record: Upload.tagged_with(params[:tag])).order("created_at desc").paginate(page: params[:page], per_page: 25) : @files = ActiveStorage::Attachment.where(record: Upload.all).order("created_at desc").paginate(page: params[:page], per_page: 25)
 		if params[:date_range]
 			case params[:date_range]
 			when "today"
 				@uploads = Upload.where('created_at > ?', 1.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+				@files = ActiveStorage::Attachment.where(record: Upload.where('created_at > ?', 1.days.ago)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "7_days"
 				@uploads = Upload.where('created_at > ?', 7.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+				@files = ActiveStorage::Attachment.where(record: Upload.where('created_at > ?', 7.days.ago)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "30_days"
 				@uploads = Upload.where('created_at > ?', 30.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+				@files = ActiveStorage::Attachment.where(record: Upload.where('created_at > ?', 30.days.ago)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			when "last_year"
 				@uploads = Upload.where('created_at > ?', 365.days.ago).order("created_at desc").paginate(page: params[:page], per_page: 25)
+				@files = ActiveStorage::Attachment.where(record: Upload.where('created_at > ?', 365.days.ago)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			else
 				@uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
+				@files = ActiveStorage::Attachment.where(record: Upload.all).order("created_at desc").paginate(page: params[:page], per_page: 25)
 			end
 		end
 		if params[:user]
-			@uploads = User.find_by(username: params[:user]).uploads.order("created_at desc").paginate(page: params[:page], per_page: 25)
+			user = User.find_by(username: params[:user])
+			@uploads = Upload.where(user: user).order("created_at desc").paginate(page: params[:page], per_page: 25)
+			@files = ActiveStorage::Attachment.where(record: Upload.where(user: user)).order("created_at desc").paginate(page: params[:page], per_page: 25)
 		end
 	end
 
@@ -52,6 +60,17 @@ class UploadsController < ApplicationController
 
 	def show
 		@upload = Upload.find(params[:id])
+		if User.exists?(@upload.user_id)
+			@uploaded_by = User.find(@upload.user_id).email
+		else
+			@uploaded_by = "User deleted"
+		end
+		@setting = Setting.find(1)
+	end
+
+	def show_file
+		@upload = Upload.find(params[:id])
+		@file = ActiveStorage::Attachment.find(params[:file_id])
 		if User.exists?(@upload.user_id)
 			@uploaded_by = User.find(@upload.user_id).email
 		else
