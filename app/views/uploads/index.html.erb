@@ -28,7 +28,7 @@
 				<%= link_to image_tag("download_icon.svg"), rails_blob_path(file, disposition: "attachment"), title: "Download file" %>
 			</div>
 			<% if multiple_upload_files(file.record) %>
-				<div class="multiContainer">
+				<div class="multiContainer" upload_id="<%= file.record.id %>">
 					<%= link_to image_tag("multi_icon.svg"), upload_path(file.record), title: "Go to multiple upload page" %>
 				</div>
 			<% end %>

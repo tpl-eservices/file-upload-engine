@@ -22,6 +22,11 @@ $(document).on('turbolinks:load', function() {
 	$(".toggleTagEdit").click(function() {
 		$(".edit_upload").toggleClass("active");
 	});
+
+	$(".multiContainer").hover(function() {
+		let uploadId = $(this).attr("upload_id");
+		$(`.multiContainer[upload_id=${uploadId}]`).closest(".fileContainer").toggleClass("active");
+	});
 });
 
 function copyToClipboard(text){
