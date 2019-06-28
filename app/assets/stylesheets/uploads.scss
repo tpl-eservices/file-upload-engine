@@ -9,7 +9,7 @@
 	display: inline-block;
 	position: relative;
 	&:hover {
-		.downloadContainer, .removeContainer {
+		.downloadContainer, .removeContainer, .multiContainer {
 			display: block;
 		}
 	}
@@ -49,7 +49,7 @@
 			object-fit: cover;
 		}
 	}
-	.userProfileContainer, .downloadContainer, .removeContainer {
+	.userProfileContainer, .downloadContainer, .removeContainer, .multiContainer {
 		padding: 5px;
 		img {
 			width: 20px;
@@ -69,6 +69,12 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+	.multiContainer {
+		display: none;
+		position: absolute;
+		bottom: 0;
+		right: 0;
 	}
 	.removeContainer {
 		display: none;
