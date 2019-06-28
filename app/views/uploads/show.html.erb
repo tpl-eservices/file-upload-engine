@@ -76,7 +76,11 @@
 		Uploaded on: <%=formatted_date(@upload.created_at)%>
 	</div>
 	<div>
-		Tags <span class="<% if is_owner(@upload) || current_user.admin? %>toggleTagEdit<% end %>" title="Toggle Edit Tags">(Edit)</span>: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
+		Tags 
+		<% if is_owner(@upload) || current_user.admin? %>
+			<span class="toggleTagEdit" title="Toggle Edit Tags">(Edit)</span>
+		<% end %>
+		: <%= raw @upload.tags.map(&:name).map { |t| link_to t, uploads_path(tag: t) }.join(', ') %>
 	</div>
 	<%= form_for @upload, url: {action: "update"} do |form| %>
 	    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
