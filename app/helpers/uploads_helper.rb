@@ -42,4 +42,11 @@ module UploadsHelper
 	def small_image_resize(setting)
 		return "#{setting.small_image}x#{setting.small_image}"
 	end
+
+	def multiple_upload_files(upload)
+		files = upload.files
+		if (files.length > 1)
+			return true
+		end
+	end
 end
