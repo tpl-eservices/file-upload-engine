@@ -2,9 +2,10 @@
 
 .sidebar {
 	width: 10%;
-	padding: 20px;
+	padding: 20px 0 20px 20px;
 	position: absolute;
 	left: 0;
+	border-right: 2px solid silver;
 	a {
 		text-decoration: none;
 	}
