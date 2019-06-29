@@ -82,7 +82,11 @@ class UploadsController < ApplicationController
 	def update
 		@upload = Upload.find(params[:id])
 		if @upload.update(upload_params)
-			redirect_to upload_path(@upload)
+			if params[:file_id]
+				redirect_to single_upload_path(@upload, file_id: params[:file_id])
+			else
+				redirect_to upload_path(@upload)
+			end
 		else
 			render "edit"
 		end

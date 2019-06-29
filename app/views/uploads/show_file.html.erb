@@ -82,6 +82,7 @@
 	</div>
 	<%= form_for @upload, url: {action: "update"} do |form| %>
 	    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
+	    <%= hidden_field_tag(:file_id, @file.id) %>
 	    <%= form.submit "Save" %>
 	<% end %>
 </div>
