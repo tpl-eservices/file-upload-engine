@@ -78,3 +78,10 @@ footer {
 		}
 	}
 }
+
+@media all and (max-width: 780px) {
+	.mainContainer {
+		width: 90%;
+		text-align: center;
+	}
+}

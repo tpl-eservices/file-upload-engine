@@ -7,7 +7,7 @@
 	height: 100vh;
 	padding: 0 0 20px 20px;
 	position: fixed;
-	left: -10%;
+	left: 0;
 	z-index: 100;
 	background-color: $primary-white;
 	.sidebarToggle {
@@ -24,8 +24,8 @@
 			background-color: #afafaf;
 		}
 	}
-	&.active {
-		left: 0;
+	&.inactive {
+		left: -10%;
 	}
 	a {
 		@include animation-transition(0.1s);
@@ -56,5 +56,8 @@
 	.sidebar {
 		width: 100%;
 		left: -100%;
+		&.inactive {
+			left: 0;
+		}
 	}
 }

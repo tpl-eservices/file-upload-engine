@@ -31,12 +31,12 @@ $(document).on('turbolinks:load', function() {
 	$(document).keydown(function() {
 		let keyCode = event.keyCode;
 		if (keyCode === 192) {
-			$(".sidebar").toggleClass("active");
+			$(".sidebar").toggleClass("inactive");
 		}
 	});
 
 	$(".sidebarToggle").click(function() {
-		$(".sidebar").toggleClass("active");
+		$(".sidebar").toggleClass("inactive");
 	});
 
 	$(".hamburger").click(function() {

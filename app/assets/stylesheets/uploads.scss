@@ -177,3 +177,14 @@
 	margin-top: 10px;
 	font-size: 18px;
 }
+
+@media all and (max-width: 780px) {
+	.fileContainer {
+		.imageContainer {
+			img {
+				width: 150px;
+				height: 150px;
+			}
+		}
+	}
+}
