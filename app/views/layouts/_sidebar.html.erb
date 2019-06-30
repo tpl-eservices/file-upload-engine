@@ -1,25 +1,19 @@
 <div class="sidebar">
 	<div class="main">
-		<div>
-			<%= link_to "Today", uploads_path(date_range: "today") %>
-		</div>
-		<div>
-			<%= link_to "Last 7 days", uploads_path(date_range: "7_days") %>
-		</div>
-		<div>
-			<%= link_to "Last 30 days", uploads_path(date_range: "30_days") %>
-		</div>
-		<div>
-			<%= link_to "Last year", uploads_path(date_range: "last_year") %>
-		</div>
+		<%= link_to "Today", uploads_path(date_range: "today") %>
+		<%= link_to "Last 7 days", uploads_path(date_range: "7_days") %>
+		<%= link_to "Last 30 days", uploads_path(date_range: "30_days") %>
+		<%= link_to "Last year", uploads_path(date_range: "last_year") %>
 	</div>
 	<div class="tags">
 		<div class="heading">
 			Most popular tags
 		</div>
 		<% @tags.each do |tag| %>
-			<div>
-				#<%= link_to tag, uploads_path(tag: tag.name) %>
+			<div class="sidebarLinkRow">
+				<%= link_to uploads_path(tag: tag.name) do %>
+					#<%= tag.name %>
+				<% end %>
 			</div>
 		<% end %>
 	</div>
@@ -30,9 +24,9 @@
 			</div>
 			<% @most_recent_tags.each do |tag| %>
 				<% if tag_object(tag) %>
-					<div>
-						#<%= link_to tag, uploads_path(tag: tag_object(tag)) %>
-					</div>
+					<%= link_to uploads_path(tag: tag_object(tag)) do %>
+						#<%= tag %>
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>

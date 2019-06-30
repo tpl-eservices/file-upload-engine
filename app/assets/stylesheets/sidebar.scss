@@ -2,12 +2,18 @@
 
 .sidebar {
 	width: 10%;
+	height: 100vh;
 	padding: 20px 0 20px 20px;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	border-right: 2px solid silver;
 	a {
 		text-decoration: none;
+		display: inline-block;
+		width: 100%;
+		&:hover {
+			background-color: silver;
+		}
 	}
 	.main {
 		padding-bottom: 10px;
