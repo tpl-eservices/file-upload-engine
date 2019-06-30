@@ -1,13 +1,19 @@
 @import "./colours";
+@import "./mixins";
 
 .sidebar {
+	@include animation-transition(0.1s);
 	width: 10%;
 	height: 100vh;
 	padding: 0 0 20px 20px;
 	position: fixed;
-	left: 0;
+	left: -10%;
 	border-right: 2px solid silver;
+	&.active {
+		left: 0;
+	}
 	a {
+		@include animation-transition(0.1s);
 		text-decoration: none;
 		display: inline-block;
 		width: 100%;

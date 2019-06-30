@@ -11,9 +11,15 @@
 	&:hover {
 		.downloadContainer, .removeContainer, .multiContainer {
 			display: block;
+			&:hover {
+				img {
+					background-color: #5a86da;
+				}
+			}
 		}
 	}
 	&.active {
+		@include animation-transition(0.1s);
 		opacity: 0.7;
 	}
 	.originalImageContainer {

@@ -27,6 +27,13 @@ $(document).on('turbolinks:load', function() {
 		let uploadId = $(this).attr("upload_id");
 		$(`.multiContainer[upload_id=${uploadId}]`).closest(".fileContainer").toggleClass("active");
 	});
+
+	$(document).keydown(function() {
+		let keyCode = event.keyCode;
+		if (keyCode === 192) {
+			$(".sidebar").toggleClass("active");
+		}
+	});
 });
 
 function copyToClipboard(text){
