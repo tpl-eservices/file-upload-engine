@@ -34,6 +34,10 @@ $(document).on('turbolinks:load', function() {
 			$(".sidebar").toggleClass("active");
 		}
 	});
+
+	$(".sidebarToggle").click(function() {
+		$(".sidebar").toggleClass("active");
+	});
 });
 
 function copyToClipboard(text){

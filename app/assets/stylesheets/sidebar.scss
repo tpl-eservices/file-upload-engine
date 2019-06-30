@@ -8,7 +8,20 @@
 	padding: 0 0 20px 20px;
 	position: fixed;
 	left: -10%;
-	border-right: 2px solid silver;
+	.sidebarToggle {
+		@include animation-transition(0.1s);
+		position: absolute;
+		width: 10px;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background-color: silver;
+		cursor: pointer;
+		&:hover {
+			background-color: #afafaf;
+		}
+	}
 	&.active {
 		left: 0;
 	}
