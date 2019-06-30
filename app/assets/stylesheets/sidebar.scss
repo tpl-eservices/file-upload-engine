@@ -8,6 +8,8 @@
 	padding: 0 0 20px 20px;
 	position: fixed;
 	left: -10%;
+	z-index: 100;
+	background-color: $primary-white;
 	.sidebarToggle {
 		@include animation-transition(0.1s);
 		position: absolute;
@@ -47,5 +49,12 @@
 	.heading {
 		font-style: italic;
 		margin-bottom: 5px;
+	}
+}
+
+@media all and (max-width: 780px) {
+	.sidebar {
+		width: 100%;
+		left: -100%;
 	}
 }

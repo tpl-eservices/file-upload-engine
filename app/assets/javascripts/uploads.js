@@ -38,6 +38,11 @@ $(document).on('turbolinks:load', function() {
 	$(".sidebarToggle").click(function() {
 		$(".sidebar").toggleClass("active");
 	});
+
+	$(".hamburger").click(function() {
+		$(this).toggleClass("is-active");
+		$(".navbarMobileLinks").slideToggle("fast");
+	});
 });
 
 function copyToClipboard(text){

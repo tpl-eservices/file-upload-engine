@@ -23,4 +23,36 @@
 			<%= link_to('Sign Up', new_user_registration_path) %>
 		<% end %>
 	</div>
+	<div class="navbarMobile">
+		<button class="hamburger hamburger--3dx" type="button">
+			<span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			</span>
+		</button>
+		<ul class="navbarMobileLinks">
+			<% if current_user %>
+				<li>
+					<%= link_to('+', new_upload_path) %>
+				</li>
+				<li>
+					<%= link_to('My Uploads', uploads_path(user: current_user.username)) %>
+				</li>
+				<% if current_user.admin? %>
+					<li>
+						<%= link_to('Admin', admin_settings_path) %>
+					</li>
+				<% end %>
+				<li>
+					<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+				</li>
+			<% else %>
+				<li>
+					<%= link_to('Login', new_user_session_path) %>
+				</li>
+				<li>
+					<%= link_to('Sign Up', new_user_registration_path) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 </nav>
