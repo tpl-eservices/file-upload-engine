@@ -32,7 +32,7 @@
 		<ul class="navbarMobileLinks">
 			<% if current_user %>
 				<li>
-					<%= link_to('+', new_upload_path) %>
+					<%= link_to('Add New Upload', new_upload_path) %>
 				</li>
 				<li>
 					<%= link_to('My Uploads', uploads_path(user: current_user.username)) %>
