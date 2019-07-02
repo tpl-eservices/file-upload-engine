@@ -35,8 +35,13 @@
 		}
 	}
 	&.active {
-		@include animation-transition(0.1s);
-		opacity: 0.7;
+		.imageContainer {
+			background: linear-gradient($primary-green, $primary-green);
+			img {
+				opacity: 0.5;
+				
+			}
+		}
 	}
 	.originalImageContainer {
 		margin-bottom: 20px;
@@ -50,6 +55,7 @@
 	}
 	.imageContainer {
 		display: inline-block;
+		font-size: 0;
 		img {
 			width: 175px;
 			height: 175px;
