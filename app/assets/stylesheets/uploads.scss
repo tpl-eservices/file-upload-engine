@@ -9,13 +9,21 @@
 	display: inline-block;
 	position: relative;
 	&:hover {
-		.downloadContainer, .removeContainer, .multiContainer {
+		.downloadContainer, .multiContainer {
 			display: block;
 			&:hover {
 				img {
 					background-color: #5a86da;
 				}
 			}
+		}
+		.removeContainer {
+			display: block;
+			&:hover {
+				img {
+					background-color: $primary-red;
+				}
+			}	
 		}
 	}
 	&.active {
