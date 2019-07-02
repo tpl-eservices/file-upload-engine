@@ -9,16 +9,24 @@
 	display: inline-block;
 	position: relative;
 	&:hover {
-		.downloadContainer, .multiContainer {
+		.downloadContainer, .multiContainer, .removeContainer {
 			display: block;
+		}
+		.downloadContainer {
 			&:hover {
 				img {
 					background-color: #5a86da;
 				}
 			}
 		}
+		.multiContainer {
+			&:hover {
+				img {
+					background-color: $primary-green;
+				}
+			}	
+		}
 		.removeContainer {
-			display: block;
 			&:hover {
 				img {
 					background-color: $primary-red;
