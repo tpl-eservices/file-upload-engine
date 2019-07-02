@@ -9,13 +9,29 @@
 	display: inline-block;
 	position: relative;
 	&:hover {
-		.downloadContainer, .removeContainer, .multiContainer {
+		.downloadContainer, .multiContainer, .removeContainer {
 			display: block;
+		}
+		.downloadContainer {
 			&:hover {
 				img {
 					background-color: #5a86da;
 				}
 			}
+		}
+		.multiContainer {
+			&:hover {
+				img {
+					background-color: $primary-green;
+				}
+			}	
+		}
+		.removeContainer {
+			&:hover {
+				img {
+					background-color: $primary-red;
+				}
+			}	
 		}
 	}
 	&.active {
@@ -98,9 +114,6 @@
 
 .showContainer {
 	text-align: right;
-	&:not(:last-child) {
-		margin-bottom: 40px;
-	}
 	.removeContainer {
 		margin-bottom: 10px;
 	}
@@ -134,10 +147,18 @@
 		}
 	}
 	.urlContainer {
+		margin-bottom: 10px;
 		.copyEventUrl {
 			cursor: pointer;
 			font-weight: 600;
 			margin-top: 10px;
+		}
+		.copyMessage {
+			display: none;
+			font-style: italic;
+			&.active {
+				display: block;
+			}
 		}
 	}
 }
@@ -151,13 +172,6 @@
 		margin-top: 10px;
 		&.active {
 			display: inline-block;
-		}
-	}
-	.copyMessage {
-		display: none;
-		font-style: italic;
-		&.active {
-			display: block;
 		}
 	}
 	.tagsContainer {
@@ -175,6 +189,9 @@
 			cursor: pointer;
 			font-weight: bold;
 		}
+	}
+	.removeContainer {
+		margin-top: 10px;
 	}
 }
 
