@@ -95,10 +95,6 @@
 		}
 	}
 }
-.tagsContainer {
-	cursor: pointer;
-	font-style: italic;
-}
 
 .showContainer {
 	text-align: right;
@@ -164,12 +160,21 @@
 			display: block;
 		}
 	}
-	a {
-		text-decoration: none;
-	}
-	.toggleTagEdit {
-		cursor: pointer;
-		font-weight: bold;
+	.tagsContainer {
+		margin-top: 10px;
+		a {
+			@include animation-transition(0.1s);
+			text-decoration: none;
+			padding: 2px 5px;
+			background-color: $primary-grey;
+			&:hover {
+				background-color: $secondary-grey;
+			}
+		}
+		.toggleTagEdit {
+			cursor: pointer;
+			font-weight: bold;
+		}
 	}
 }
 
