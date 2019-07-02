@@ -1,11 +1,13 @@
 <div class="showContainer">
-	<% if is_owner(@upload) || current_user.admin? %>
-		<div class="removeContainer">
-			<%= link_to 'Remove', delete_image_attachment_upload_url(id: @file.id, upload_id: @upload.id),
-	            method: :delete,
-	            data: { confirm: 'Are you sure you wish to delete this?' } %>
-		</div>
-	<% end %>
+	<div class="urlContainer">
+		<% if is_image(@file) %>
+			<div class="copyEventUrl">
+				Copy Event URL
+			</div>
+			<div class="copyMessage">
+			</div>
+		<% end %>
+	</div>
 	<div class="fileContainer" title="Filename: <%= @file.filename %>">
 		<% if is_image(@file) %>
 			<div class="originalImageContainer">
@@ -56,15 +58,6 @@
 			</div>
 		<% end %>
 	</div>
-	<div class="urlContainer">
-		<% if is_image(@file) %>
-			<div class="copyEventUrl">
-				Copy Event URL
-			</div>
-			<div class="copyMessage">
-			</div>
-		<% end %>
-	</div>
 </div>
 <div class="detailsContainer">
 	<div>
@@ -83,5 +76,12 @@
 	    <%= form.text_field :tag_list, value: @upload.tag_list.to_s, placeholder: "Enter tags (use comma to separate)" %>
 	    <%= hidden_field_tag(:file_id, @file.id) %>
 	    <%= form.submit "Save" %>
+	<% end %>
+	<% if is_owner(@upload) || current_user.admin? %>
+		<div class="removeContainer">
+			<%= link_to 'Delete Upload', delete_image_attachment_upload_url(id: @file.id, upload_id: @upload.id),
+	            method: :delete,
+	            data: { confirm: 'Are you sure you wish to delete this?' } %>
+		</div>
 	<% end %>
 </div>

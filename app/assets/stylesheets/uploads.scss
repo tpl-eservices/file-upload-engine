@@ -98,9 +98,6 @@
 
 .showContainer {
 	text-align: right;
-	&:not(:last-child) {
-		margin-bottom: 40px;
-	}
 	.removeContainer {
 		margin-bottom: 10px;
 	}
@@ -134,6 +131,7 @@
 		}
 	}
 	.urlContainer {
+		margin-bottom: 10px;
 		.copyEventUrl {
 			cursor: pointer;
 			font-weight: 600;
@@ -175,6 +173,9 @@
 			cursor: pointer;
 			font-weight: bold;
 		}
+	}
+	.removeContainer {
+		margin-top: 10px;
 	}
 }
 
