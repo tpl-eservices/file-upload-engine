@@ -12,3 +12,11 @@
 	display: flex;
 	align-items: center;
 }
+
+@mixin animation-transition($speed) {
+	-webkit-transition: all $speed ease; /* Safari and Chrome */
+	-moz-transition: all $speed ease; /* Firefox */
+	-ms-transition: all $speed ease; /* IE 9 */
+	-o-transition: all $speed ease; /* Opera */
+	transition: all $speed ease;
+}

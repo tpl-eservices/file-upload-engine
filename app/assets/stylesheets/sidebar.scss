@@ -1,12 +1,40 @@
 @import "./colours";
+@import "./mixins";
 
 .sidebar {
+	@include animation-transition(0.1s);
 	width: 10%;
-	padding: 20px;
-	position: absolute;
+	height: 100vh;
+	padding: 0 0 20px 20px;
+	position: fixed;
 	left: 0;
+	z-index: 100;
+	background-color: $primary-white;
+	.sidebarToggle {
+		@include animation-transition(0.1s);
+		position: absolute;
+		width: 10px;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background-color: silver;
+		cursor: pointer;
+		&:hover {
+			background-color: #afafaf;
+		}
+	}
+	&.inactive {
+		left: -10%;
+	}
 	a {
+		@include animation-transition(0.1s);
 		text-decoration: none;
+		display: inline-block;
+		width: 100%;
+		&:hover {
+			background-color: silver;
+		}
 	}
 	.main {
 		padding-bottom: 10px;
@@ -21,5 +49,15 @@
 	.heading {
 		font-style: italic;
 		margin-bottom: 5px;
+	}
+}
+
+@media all and (max-width: 780px) {
+	.sidebar {
+		width: 100%;
+		left: -100%;
+		&.inactive {
+			left: 0;
+		}
 	}
 }

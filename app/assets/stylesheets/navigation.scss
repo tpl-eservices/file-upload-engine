@@ -1,4 +1,5 @@
 @import "./mixins";
+@import "./colours";
 
 nav {
 	@include flex-box;
@@ -15,15 +16,83 @@ nav {
 		#avatarUpload, #updateAvatar {
 			display: none;
 		}
+		a {
+			margin: 0 10px;
+			font-size: 18px;
+			text-decoration: none;
+		}
+		img {
+			width: 20px;
+			height: 20px;
+			object-fit: cover;
+		}
 	}
-	a {
-		margin: 0 10px;
-		font-size: 18px;
-		text-decoration: none;
+	.navbarMobile {
+		display: none;
+		width: 100%;
+		.navbarMobileLinks {
+			display: none;
+			&.active {
+				display: block;
+			}
+		}
+		li {
+			list-style-type: none;
+		}
+		a {
+			@include animation-transition(0.1s);
+			@include border-box;
+			text-decoration: none;
+			width: 100%;
+			display: block;
+			text-align: right;
+			padding: 5px;
+			&:hover {
+				background-color: silver;
+			}
+		}
+		.hamburger {
+			width: 100%;
+			text-align: right;
+			padding: 10px 5px 5px 5px;
+			&:hover {
+				opacity: 1;
+			}
+			.hamburger-box {
+				width: 30px;
+				.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+					width: 25px;
+					height: 3px;
+					border-radius: 0;
+					background-color: $primary-black;
+				}
+				.hamburger-inner {
+					&:before {
+						top: -7px;
+					}
+					&:after {
+						bottom: -7px;
+					}
+				}
+			}
+		}
+		.hamburger--3dx.is-active .hamburger-inner:before {
+			transform: translate3d(0,7px,0) rotate(45deg);
+		}
+		.hamburger--3dx.is-active .hamburger-inner:after {
+			transform: translate3d(0,-7px,0) rotate(-45deg)
+		}
 	}
-	img {
-		width: 20px;
-		height: 20px;
-		object-fit: cover;
+}
+
+@media all and (max-width: 780px) {
+	nav {
+		padding: 0;
+		.navbarContents {
+			display: none;
+		}
+		.navbarMobile {
+			display: block;
+		}	
 	}
 }

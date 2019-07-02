@@ -11,9 +11,15 @@
 	&:hover {
 		.downloadContainer, .removeContainer, .multiContainer {
 			display: block;
+			&:hover {
+				img {
+					background-color: #5a86da;
+				}
+			}
 		}
 	}
 	&.active {
+		@include animation-transition(0.1s);
 		opacity: 0.7;
 	}
 	.originalImageContainer {
@@ -170,4 +176,15 @@
 .pagination {
 	margin-top: 10px;
 	font-size: 18px;
+}
+
+@media all and (max-width: 780px) {
+	.fileContainer {
+		.imageContainer {
+			img {
+				width: 150px;
+				height: 150px;
+			}
+		}
+	}
 }
