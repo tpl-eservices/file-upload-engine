@@ -70,7 +70,7 @@
 <% end %>
 <div class="detailsContainer">
 	<div>
-		Uploaded by: <%= @uploaded_by %>
+		Uploaded by: <%= link_to @upload.user.username, uploads_path(user: @upload.user.username), title: "Go to #{@upload.user.username}'s uploads" %>
 	</div>
 	<div>
 		Uploaded on: <%=formatted_date(@upload.created_at)%>
