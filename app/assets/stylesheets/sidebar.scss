@@ -3,7 +3,7 @@
 
 .sidebar {
 	@include animation-transition(0.1s);
-	width: 10%;
+	width: 12%;
 	height: 100vh;
 	padding: 0 0 20px 20px;
 	position: fixed;
@@ -13,7 +13,7 @@
 	.sidebarToggle {
 		@include animation-transition(0.1s);
 		position: absolute;
-		width: 10px;
+		width: 5px;
 		height: 100%;
 		top: 0;
 		bottom: 0;
