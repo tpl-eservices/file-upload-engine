@@ -139,6 +139,13 @@
 			font-weight: 600;
 			margin-top: 10px;
 		}
+		.copyMessage {
+			display: none;
+			font-style: italic;
+			&.active {
+				display: block;
+			}
+		}
 	}
 }
 
@@ -151,13 +158,6 @@
 		margin-top: 10px;
 		&.active {
 			display: inline-block;
-		}
-	}
-	.copyMessage {
-		display: none;
-		font-style: italic;
-		&.active {
-			display: block;
 		}
 	}
 	.tagsContainer {
