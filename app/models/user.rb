@@ -5,4 +5,10 @@ class User < ApplicationRecord
 	       :recoverable, :rememberable, :validatable, :confirmable
 	has_many :uploads
 	has_one_attached :avatar
+
+	validates :email,
+		format: { 
+			with: /\b[A-Z0-9._%a-z\-]+(@tpl|@torontopubliclibrary)\.ca\z/,
+        	message: "You can only sign up with a tpl.ca (or torontopubliclibrary.ca) account" 
+        }
 end
