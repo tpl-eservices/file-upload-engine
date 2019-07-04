@@ -5,6 +5,10 @@
 `rails db:setup`     
 `rails s`     
 
+# Optional:
+You need to install imagemagick if it's not already on your system (which is used to resize any uploaded images)
+`brew install imagemagick`
+
 # Logging in on local development:
 
 As there is not an smtp server set up for local development, when you first sign up it won't send an email with the confirmation link. Instead, you can find the link in the server logs. Simply copy and paste the link into a browser and this will confirm your email address.
