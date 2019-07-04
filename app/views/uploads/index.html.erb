@@ -1,3 +1,6 @@
+<%= form_for(uploads_path, method: :get) do %>
+	<%= text_field_tag(:search, params[:search], placeholder: "Search by Tag", title: "More search terms coming soon") %>
+<% end %>
 <% if @files.length > 0 %>
 	<% @files.each do |file| %>
 		<div class="fileContainer" title="<% if is_video(file) %><%= file.filename %> | <% end %>Uploaded on: <%=formatted_date(file.created_at) %>">
