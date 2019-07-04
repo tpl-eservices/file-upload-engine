@@ -6,8 +6,14 @@ class UploadsController < ApplicationController
 	end
 
 	def index
-		params[:tag] ? @uploads = Upload.tagged_with(params[:tag]).order("created_at desc").paginate(page: params[:page], per_page: 25) : @uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
-		params[:tag] ? @files = ActiveStorage::Attachment.where(record: Upload.tagged_with(params[:tag])).order("created_at desc").paginate(page: params[:page], per_page: 25) : @files = ActiveStorage::Attachment.where(record: Upload.all).order("created_at desc").paginate(page: params[:page], per_page: 25)
+		if params[:search]
+			tag = params[:search]
+		end
+		if params[:tag]
+			tag = params[:tag]
+		end
+		tag ? @uploads = Upload.tagged_with(tag).order("created_at desc").paginate(page: params[:page], per_page: 25) : @uploads = Upload.all.order("created_at desc").paginate(page: params[:page], per_page: 25)
+		tag ? @files = ActiveStorage::Attachment.where(record: Upload.tagged_with(tag)).order("created_at desc").paginate(page: params[:page], per_page: 25) : @files = ActiveStorage::Attachment.where(record: Upload.all).order("created_at desc").paginate(page: params[:page], per_page: 25)
 		if params[:date_range]
 			case params[:date_range]
 			when "today"
@@ -105,6 +111,6 @@ class UploadsController < ApplicationController
 	private
 
 	def upload_params
-		params.require(:upload).permit(:tag_list, files: []).merge(user: current_user)
+		params.require(:upload).permit(:search, :tag_list, files: []).merge(user: current_user)
 	end
 end
