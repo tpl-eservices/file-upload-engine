@@ -6,4 +6,9 @@ class User < ApplicationRecord
 	has_many :uploads
 	has_one_attached :avatar
 	validates_uniqueness_of :username
+	validates :email,
+		format: { 
+			with: /\b[A-Z0-9._%a-z\-]+(@tpl|@torontopubliclibrary)\.ca\z/,
+        	message: "You can only sign up with a tpl.ca (or torontopubliclibrary.ca) account" 
+        }
 end
