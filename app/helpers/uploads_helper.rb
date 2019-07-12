@@ -31,6 +31,12 @@ module UploadsHelper
 		end
 	end
 
+	def is_code(file)
+		if File.extname("#{file.filename}") == ".js" || File.extname("#{file.filename}") == ".rb" || File.extname("#{file.filename}") == ".jsx" || File.extname("#{file.filename}") == ".jsx" || File.extname("#{file.filename}") == ".jspf" || File.extname("#{file.filename}") == ".jsp" || File.extname("#{file.filename}") == ".css" || File.extname("#{file.filename}") == ".scss"
+			return true
+		end
+	end
+
 	def large_image_resize(setting)
 		return "#{setting.large_image}x#{setting.large_image}"
 	end

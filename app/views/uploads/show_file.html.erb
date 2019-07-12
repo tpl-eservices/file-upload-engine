@@ -56,6 +56,10 @@
 			<div class="pdfContainer">
 				<%= image_tag("pdf_icon.svg") %>
 			</div>
+		<% elsif is_code(@file) %>
+			<div class="pdfContainer">
+				<%= image_tag("code_icon.svg") %>
+			</div>
 		<% end %>
 	</div>
 </div>
