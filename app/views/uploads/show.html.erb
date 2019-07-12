@@ -52,12 +52,18 @@
 					<%= video_tag rails_blob_path(file), controls: true %>
 				</div>
 			<% elsif is_pdf(file) %>
-				<div class="pdfContainer">
+				<div class="iconContainer">
 					<%= image_tag("pdf_icon.svg") %>
+					<div class="externalLink" title="Open source file">
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(@file, only_path: true), target: :_blank %>
+					</div>
 				</div>
 			<% elsif is_code(@file) %>
-				<div class="pdfContainer">
+				<div class="iconContainer">
 					<%= image_tag("code_icon.svg") %>
+					<div class="externalLink" title="Open source file">
+						<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_blob_path(@file, only_path: true), target: :_blank %>
+					</div>
 				</div>
 			<% end %>
 		</div>
