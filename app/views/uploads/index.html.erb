@@ -14,11 +14,11 @@
 						<%= image_tag("video_icon.svg", alt: file.filename)  %>
 					</div>
 				<% elsif is_pdf(file) %>
-					<div class="pdfContainer">
+					<div class="iconContainer">
 						<%= image_tag("pdf_icon.svg") %>
 					</div>
 				<% elsif is_code(file) %>
-					<div class="pdfContainer">
+					<div class="iconContainer">
 						<%= image_tag("code_icon.svg") %>
 					</div>
 				<% end %>
