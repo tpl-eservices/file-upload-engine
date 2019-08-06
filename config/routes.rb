@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'settings/index'
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+ 	get 'settings/index'
+ 	devise_for :users, controllers: { registrations: 'users/registrations' }
 	get 'welcome/index'
 
 	authenticate :user do
