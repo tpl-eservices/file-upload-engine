@@ -21,7 +21,7 @@
 					Original: <%= bytes_to_megabytes(@file.byte_size) %> MB
 				</div>
 			</div>
-			<div class="imageContainer large" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: large_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+			<div class="imageContainer large" url="<%= @file.variant(resize: large_image_resize(@setting)).service_url %>">
 				<%= image_tag @file.variant(resize: large_image_resize(@setting)) %>
 				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.large_image}px">
 					<%= @setting.large_image %>px
@@ -30,7 +30,7 @@
 					<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: large_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 				</div>
 			</div>
-			<div class="imageContainer medium" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: medium_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+			<div class="imageContainer medium" url="<%= @file.variant(resize: medium_image_resize(@setting)).service_url %>">
 				<%= image_tag @file.variant(resize: medium_image_resize(@setting)) %>
 				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.medium_image}px">
 					<%= @setting.medium_image %>px
@@ -39,7 +39,7 @@
 					<%= link_to image_tag("external_link_icon.svg"), Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: medium_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options), target: :_blank %>
 				</div>
 			</div>
-			<div class="imageContainer small" url="<%= Rails.application.routes.url_helpers.rails_representation_url(@file.variant(resize: small_image_resize(@setting)), Rails.application.config.action_mailer.default_url_options) %>">
+			<div class="imageContainer small" url="<%= @file.variant(resize: small_image_resize(@setting)).service_url %>">
 				<%= image_tag @file.variant(resize: small_image_resize(@setting)) %>
 				<div class="fileSize" title="Image has been resized to a maximum width and/or height of #{@setting.small_image}px">
 					<%= @setting.small_image %>px
