@@ -18,3 +18,5 @@ test:
 production:
   <<: *default
   database: db/file_upload_engine_prod
+  username: uploader                                                            
+  password: <%= ENV['FILE_UPLOAD_DATABASE_PASSWORD'] %> 
