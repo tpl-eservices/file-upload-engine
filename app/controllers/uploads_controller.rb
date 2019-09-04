@@ -1,8 +1,5 @@
 class UploadsController < ApplicationController
 	before_action :authenticate_user!
-	before_action do
-		ActiveStorage::Current.host = request.base_url
-	end
 
 	def new
 		@upload = Upload.new
